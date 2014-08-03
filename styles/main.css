@@ -418,7 +418,6 @@ width: 25px;
     top: 50%;
   }
   .switch {
-    right: 50%;
-    margin-right: -37px;
+    display:none;
   }
 }
