@@ -1,0 +1,13 @@
+/*********************************
+  Global: Layout
+  Kohei Shingai main_ja.css v0.0.1 | MIT License | git.io/normalize
+*/
+
+body {
+  font-family: "メイリオ", "ヒラギノ角ゴ Pro W3", "MS PGothic", "MS UI Gothic", Helvetica, Arial, sans-serif;
+}
+
+.side-nav.white-nav li a {
+  font-size: 14px;
+  line-height: 47px;
+}
