@@ -3,7 +3,7 @@
 <!--[if lte IE 8]> <html class="ie8"> <![endif]-->
 <!--[if IE 9]> <html class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
-<html>
+<html lang="en">
 <!--<![endif]-->
 <head>
 <meta charset="utf-8">
@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" href="../images/f.ico">
 <meta name="description" content="">
 </head>
-<body class="home page">
+<body class="home page nav-collapsed">
 <div class="pin-frame">
 <div class="pin-content"></div>
 </div>
@@ -28,19 +28,19 @@
 <ul>
 <li>
 <a href="/about">
-<span>About</span>
+<span data="about">About</span>
 <i class="icon about"></i>
 </a>
 </li>
 <li>
 <a href="/product" class="select">
-<span>Product</span>
+<span data="product">Product</span>
 <i class="icon product"></i>
 </a>
 </li>
 <li>
 <a href="/article">
-<span>Article</span>
+<span data="article">Article</span>
 <i class="icon article"></i>
 </a>
 </li>
@@ -52,17 +52,19 @@
 </li>
 </ul>
 </div>
-
-<div class="switch white">
-  <input type="radio" name="switch" id="switch-off">
-  <input type="radio" name="switch" id="switch-on" checked="">
-  <span class="toggle"></span>
+<div class="content-frame">
+<div class="switch white fff">
+<input type="radio" name="switch" id="switch-off">
+<input type="radio" name="switch" id="switch-on" checked="">
+<span class="toggle blue"></span>
 </div>
-
+<header class="blue">&gt; <span data="product">Product</span></header>
+</div>
 </div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
 <script src="../scripts/index.js" type="text/javascript" charset="utf-8"></script>
-<script src="../scripts/lang.js" type="text/javascript" charset="utf-8"></script>
+<script src="../scripts/lang2.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

@@ -217,24 +217,8 @@ background: #fafafa;
 background: none !important;
 cursor: default;
 }
-/*header {
-height: 282px;
-background-color: #ff9800;
-right: 0;
-left: 0px;
-top: -54px;
-z-index: 1;
-position: fixed;
-color: white;
-text-align: left;
-line-height: 470px;
-font-weight: 300;
-font-size: 28px;
-text-indent: 72px;
-}*/
 header {
 height: 282px;
-background-color: #ff9800;
 right: 0;
 left: 0px;
 top: -53px;
@@ -302,6 +286,12 @@ z-index: 1;
 }
 .orange{
 background: #ff9800 !important;
+}
+.blue{
+background: #3f51b5 !important;
+}
+.pink{
+background: #e81d62 !important;
 }
 .switch input:checked~.toggle {
 left: 4px;

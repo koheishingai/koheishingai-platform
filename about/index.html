@@ -28,19 +28,19 @@
 <ul>
 <li>
 <a href="/about" class="select">
-<span>About</span>
+<span data="about">About</span>
 <i class="icon about"></i>
 </a>
 </li>
 <li>
 <a href="/product">
-<span>Product</span>
+<span data="product">Product</span>
 <i class="icon product"></i>
 </a>
 </li>
 <li>
 <a href="/article">
-<span>Article</span>
+<span data="article">Article</span>
 <i class="icon article"></i>
 </a>
 </li>
@@ -58,12 +58,13 @@
 <input type="radio" name="switch" id="switch-on" checked="">
 <span class="toggle orange"></span>
 </div>
-<header>&gt; About</header>
+<header class="orange">&gt; <span data="about">About</span></header>
 </div>
 </div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
 <script src="../scripts/index.js" type="text/javascript" charset="utf-8"></script>
-<script src="../scripts/lang.js" type="text/javascript" charset="utf-8"></script>
+<script src="../scripts/lang2.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
