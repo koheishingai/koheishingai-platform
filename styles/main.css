@@ -418,9 +418,7 @@ width: 25px;
     top: 50%;
   }
   .switch {
-    top: 50%;
     right: 50%;
     margin-right: -37px;
-    margin-top: 76px;
   }
 }
