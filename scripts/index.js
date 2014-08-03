@@ -17,7 +17,7 @@ Requires: jquery
         if (w > 580) {
           $logo.css("margin-top", "20px");
         }else{
-          $logo.css("margin-top", h2);
+          $logo.css("margin-top", h2-256);
         }
       }else{
         if (w > h) {

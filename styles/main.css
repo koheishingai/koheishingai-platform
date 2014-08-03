@@ -397,6 +397,10 @@ width: 25px;
 }
 
 @media (max-width: 580px){
+  body{
+    width: 100%;
+    padding: 0px;
+  }
   .wcard{
     display: none;
   }
@@ -412,5 +416,11 @@ width: 25px;
     position: absolute;
     width: 100%;
     top: 50%;
+  }
+  .switch {
+    top: 50%;
+    right: 50%;
+    margin-right: -37px;
+    margin-top: 76px;
   }
 }
