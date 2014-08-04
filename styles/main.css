@@ -402,7 +402,7 @@ width: 25px;
     padding: 0px;
   }
   .frame{
-    height: auto;
+    height: auto !important;
   }
   .wcard{
     display: none;
