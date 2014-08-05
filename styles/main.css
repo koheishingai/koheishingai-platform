@@ -401,6 +401,9 @@ width: 25px;
     width: 100%;
     padding: 0px;
   }
+  .frame{
+    height: auto !important;
+  }
   .wcard{
     display: none;
   }
