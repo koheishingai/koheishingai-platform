@@ -349,7 +349,6 @@ right: 6px;
 bottom: 6px;
 height: 96px;
 width: 198px;
-cursor: pointer;
 }
 .card {
 border: 1px solid #DFDFDF;
@@ -403,6 +402,9 @@ width: 25px;
   }
   .frame{
     height: auto !important;
+  }
+  .wnotify{
+    display: none;
   }
   .wcard{
     display: none;
