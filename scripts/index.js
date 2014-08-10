@@ -82,7 +82,6 @@ Requires: jquery
       _cnt_l = 0;
       _timer_l = setInterval(function(){
         if(_url === "/"){
-          location.href = "/Kohei_Shingai";
           var title_l = "Kohei Shingai";
         }else{
           var title_l = _url.split("/").join("");
