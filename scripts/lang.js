@@ -4,12 +4,24 @@ Requires: jquery
 */
 (function(){
   "use strict"
-  var init, getLang, setLang, getTime, getJson, setContent, _lang, _json, $on, $off, $html, $head;
+  var init, getLang, setLang, getTime, getJson, setContent, viewNotify, _lang, _json, $on, $off, $html, $head, $notify;
   var socket=io.connect(":8082");
   $on = $("#switch-on");
   $off = $("#switch-off");
   $html = $("html");
   $head = $('head');
+  $notify = $('.notify');
+  viewNotify = function(lang){
+    if(lang === "ja"){
+      var alert = "日本語に設定しました"
+    }else{
+      var alert = "Set to English"
+    }
+    $notify.text(alert).addClass("on");
+    setTimeout(function(){
+      $notify.removeClass("on");
+    }, 1200);
+  };
   setContent = function(){
     for(var key in _json){
       if(key.indexOf("_"+_lang) !== -1){
@@ -62,6 +74,7 @@ Requires: jquery
     $head.append('<link class="langstyle" rel="stylesheet" href="styles/main_en.css?'+getTime()+'" type="text/css">');
     $html.attr("lang", "en");
     setContent();
+    viewNotify(_lang);
   });
   $off.change(function(){// To Japanese
     _lang = "ja";
@@ -69,5 +82,6 @@ Requires: jquery
     $head.append('<link class="langstyle" rel="stylesheet" href="styles/main_ja.css?'+getTime()+'" type="text/css">');
     $html.attr("lang", "en");
     setContent();
+    viewNotify(_lang);
   });
 })();
