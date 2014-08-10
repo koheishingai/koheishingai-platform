@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var init, _width, _height, upAd, _device, _browser, _url, $logo, $card, $loading, $title_l, timer, logoPos;
+    var _width, _height, _device, _browser, _url, _timer, _timer_l, $logo, $card, $loading, $title_l, init, logoPos, upAd, nLoad, iLoad;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -37,27 +37,54 @@ Requires: jquery
           $logo.css("margin-top", h2-256);
         }
       }
-    }
+    };
+    nLoad = function(cnt){
+      if(cnt === 0){
+        $title_l.removeClass("step4").addClass("step1");
+      }else if(cnt === 1){
+        $title_l.removeClass("step1").addClass("step2");        
+      }else if(cnt === 2){
+        $title_l.removeClass("step2").addClass("step3");
+      }else if(cnt === 3){
+        $title_l.removeClass("step3").addClass("step4");
+        if(_url !== "/"){
+          cnt = -1;
+        }else{
+          $loading.fadeOut(function(){
+            clearInterval(_timer_l);
+            logoPos(_width, _height);
+            upAd();
+          });
+        }
+      }
+    };
+    iLoad = function(cnt){
+      if(cnt === 0){
+        
+      }else if(cnt === 1){
+               
+      }else if(cnt === 2){
+        
+      }else if(cnt === 3){
+        
+        if(_url !== "/"){
+          cnt = -1;
+        }else{
+          $loading.fadeOut(function(){
+            clearInterval(_timer_l);
+            logoPos(_width, _height);
+            upAd();
+          });
+        }
+      }
+    };
     init = function(){
       var cnt = 0;
-      var timer_l = setInterval(function(){
-        if(cnt === 0){
-          $title_l.removeClass("step4").addClass("step1");
-        }else if(cnt === 1){
-          $title_l.removeClass("step1").addClass("step2");        
-        }else if(cnt === 2){
-          $title_l.removeClass("step2").addClass("step3");
-        }else if(cnt === 3){
-          $title_l.removeClass("step3").addClass("step4");
-          if(_url !== "/"){
-            cnt = -1;
-          }else{
-            $loading.fadeOut(function(){
-              clearInterval(timer_l);
-              logoPos(_width, _height);
-              upAd();
-            });
-          }
+      _timer_l = setInterval(function(){
+        if(_device !== "iphone"){
+          nLoad(cnt);
+        }else if{
+          iLoad(cnt);
         }
         cnt++;
       }, 730);
@@ -67,9 +94,9 @@ Requires: jquery
         var width = window.innerWidth;
         var height = window.innerHeight;
         if (timer !== false) {
-            clearTimeout(timer)
+            clearTimeout(_timer)
         }
-        timer = setTimeout(function() {
+        _timer = setTimeout(function() {
             logoPos(width, height);
         }, 100)
     });
