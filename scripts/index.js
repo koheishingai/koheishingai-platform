@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _width, _height, _device, _browser, _url, _timer, _timer_l, $logo, $card, $loading, $title_l, init, logoPos, upAd, nLoad, iLoad;
+    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $logo, $card, $loading, $title_l, init, logoPos, upAd, nLoad, iLoad;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -38,17 +38,17 @@ Requires: jquery
         }
       }
     };
-    nLoad = function(cnt){
-      if(cnt === 0){
+    nLoad = function(){
+      if(_cnt_l === 0){
         $title_l.removeClass("step4").addClass("step1");
-      }else if(cnt === 1){
+      }else if(_cnt_l === 1){
         $title_l.removeClass("step1").addClass("step2");        
-      }else if(cnt === 2){
+      }else if(_cnt_l === 2){
         $title_l.removeClass("step2").addClass("step3");
-      }else if(cnt === 3){
+      }else if(_cnt_l === 3){
         $title_l.removeClass("step3").addClass("step4");
         if(_url !== "/"){
-          cnt = -1;
+          _cnt_l = -1;
         }else{
           $loading.fadeOut(function(){
             clearInterval(_timer_l);
@@ -58,17 +58,17 @@ Requires: jquery
         }
       }
     };
-    iLoad = function(cnt){
-      if(cnt === 0){
+    iLoad = function(){
+      if(_cnt_l === 0){
         
-      }else if(cnt === 1){
+      }else if(_cnt_l === 1){
                
-      }else if(cnt === 2){
+      }else if(_cnt_l === 2){
         
-      }else if(cnt === 3){
+      }else if(_cnt_l === 3){
         
         if(_url !== "/"){
-          cnt = -1;
+          _cnt_l = -1;
         }else{
           $loading.fadeOut(function(){
             clearInterval(_timer_l);
@@ -79,14 +79,14 @@ Requires: jquery
       }
     };
     init = function(){
-      var cnt = 0;
+      _cnt_l = 0;
       _timer_l = setInterval(function(){
         if(_device !== "iphone"){
-          nLoad(cnt);
-        }else if{
-          iLoad(cnt);
+          nLoad();
+        }else{
+          iLoad();
         }
-        cnt++;
+        _cnt_l++;
       }, 730);
     };
     init();
