@@ -99,7 +99,7 @@ Requires: jquery
     $(window).resize(function() {
         var width = window.innerWidth;
         var height = window.innerHeight;
-        if (timer !== false) {
+        if (_timer !== false) {
             clearTimeout(_timer)
         }
         _timer = setTimeout(function() {
