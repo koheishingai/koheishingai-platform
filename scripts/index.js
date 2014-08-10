@@ -89,7 +89,7 @@ Requires: jquery
         if(_device !== "iphone"){
           nLoad(title_l);
         }else{
-          iLoad(title_l+"<br>Now Loading");
+          iLoad(title_l+"<div>Now Loading</div>");
         }
         _cnt_l++;
       }, 730);

@@ -428,6 +428,12 @@ transition: transform ease-in-out 0.28s;
 transform-origin: 50% 50% 50%;
 }
 
+.loading h1 div {
+font-size: 14px;
+margin-top: -7px;
+color: #e0e0e0;
+}
+
 .step1{
   -moz-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
