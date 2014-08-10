@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var init, _width, _height, upAd, _device, _browser, $logo, $card, timer, logoPos;
+    var init, _width, _height, upAd, _device, _browser, _url, $logo, $card, $loading, $title_l, timer, logoPos;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -12,8 +12,11 @@ Requires: jquery
     _height = window.innerHeight;
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
+    _url = window.location.pathname;
     $logo = $('.logo');
     $card = $('.card');
+    $loading = $('.loading');
+    $title_l = $('.title_l');
     upAd = function(){
       setTimeout(function(){
         $card.addClass("up");
@@ -36,8 +39,28 @@ Requires: jquery
       }
     }
     init = function(){
-      logoPos(_width, _height);
-      upAd();
+      var cnt = 0;
+      var timer_l = setInterval(function(){
+        if(cnt === 0){
+          $title_l.removeClass("step4").addClass("step1");
+        }else if(cnt === 1){
+          $title_l.removeClass("step1").addClass("step2");        
+        }else if(cnt === 2){
+          $title_l.removeClass("step2").addClass("step3");
+        }else if(cnt === 3){
+          $title_l.removeClass("step3").addClass("step4");
+          if(_url !== "/"){
+            cnt = -1;
+          }else{
+            $loading.fadeOut(function(){
+              clearInterval(timer_l);
+              logoPos(_width, _height);
+              upAd();
+            });
+          }
+        }
+        cnt++;
+      }, 730);
     };
     init();
     $(window).resize(function() {
