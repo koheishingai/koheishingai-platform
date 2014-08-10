@@ -365,6 +365,7 @@ border-radius: 2px;
 transition: background-color ease-in 0.22s 0.02s, -webkit-box-shadow ease-in 0.22s 0.02s, transform 0.2s ease-in-out;
 transform: translateY(200px);
 -webkit-transform: translateY(200px);
+cursor: pointer;
 }
 .up{
 transform: translateY(0px);
