@@ -70,9 +70,9 @@ Requires: jquery
         if(_url !== "/"){
           _cnt_l = -1;
         }else{
+          logoPos(_width, _height);
           $loading.fadeOut(function(){
             clearInterval(_timer_l);
-            logoPos(_width, _height);
             upAd();
           });
         }
