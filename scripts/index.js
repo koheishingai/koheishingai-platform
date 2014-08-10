@@ -38,9 +38,9 @@ Requires: jquery
         }
       }
     };
-    nLoad = function(){
+    nLoad = function(title_l){
       if(_cnt_l === 0){
-        $title_l.removeClass("step4").addClass("step1");
+        $title_l.text(title_l).removeClass("step4").addClass("step1");
       }else if(_cnt_l === 1){
         $title_l.removeClass("step1").addClass("step2");        
       }else if(_cnt_l === 2){
@@ -58,9 +58,9 @@ Requires: jquery
         }
       }
     };
-    iLoad = function(){
+    iLoad = function(title_l){
       if(_cnt_l === 0){
-        
+        $title_l.html(title_l);
       }else if(_cnt_l === 1){
                
       }else if(_cnt_l === 2){
@@ -81,10 +81,15 @@ Requires: jquery
     init = function(){
       _cnt_l = 0;
       _timer_l = setInterval(function(){
-        if(_device !== "iphone"){
-          nLoad();
+        if(_url === "/"){
+          var title_l = "Kohei Shingai";
         }else{
-          iLoad();
+          var title_l = _url.split("/").join();
+        }
+        if(_device !== "iphone"){
+          nLoad(title_l);
+        }else{
+          iLoad(title_l+"<br>Now Loading");
         }
         _cnt_l++;
       }, 730);
