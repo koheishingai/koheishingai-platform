@@ -85,6 +85,7 @@ Requires: jquery
           var title_l = "Kohei Shingai";
         }else{
           var title_l = _url.split("/").join("");
+              title_l = title_l.split("_").join(" ");
         }
         if(_device !== "iphone"){
           nLoad(title_l);
