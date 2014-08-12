@@ -462,6 +462,28 @@ margin-top: -7px;
   transform: rotateY(360deg) rotateX(360deg);
 }
 
+.search_w{
+  width: 100%;
+  padding: 58px 20px 0px;
+}
+
+.search_w input {
+width: 100%;
+color: #757575;
+font-family: inherit;
+font-weight: 300;
+font-size: 18px;
+border: none;
+outline: none;
+text-indent: 5px;
+margin-bottom: 1px;
+text-align: center;
+}
+
+.search_w .underl {
+  border-bottom: 1px solid #eee;
+}
+
 @media (max-width: 580px){
   body{
     width: 100%;
