@@ -363,8 +363,8 @@ height: 100%;
 border-radius: 2px;
 -webkit-transition: background-color ease-in 0.22s 0.02s, box-shadow ease-in 0.22s 0.02s, -webkit-transform 0.2s ease-in-out;
 transition: background-color ease-in 0.22s 0.02s, -webkit-box-shadow ease-in 0.22s 0.02s, transform 0.2s ease-in-out;
-transform: translateY(200px);
--webkit-transform: translateY(200px);
+transform: translateY(320px);
+-webkit-transform: translateY(320px);
 cursor: pointer;
 }
 .up{
