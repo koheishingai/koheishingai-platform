@@ -11,3 +11,11 @@ body {
   font-size: 14px;
   line-height: 47px;
 }
+
+.card .caption[data="logsig"] {
+  padding-top: 38px;
+}
+
+.card .caption[data="rel"] {
+  padding-top: 38px;
+}

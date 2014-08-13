@@ -32,8 +32,9 @@ Requires: jquery
     }
   };
   getJson = function(){
-    _json = {"about_en":"About","about_ja":"自己紹介","product_en":"Product","product_ja":"プロダクト","article_en":"Article","article_ja":"記事","ad1_en":"Create your portfolio.","ad1_ja":"ポートフォリオ<br>をつくる"};
+    _json = {"about_en":"About","about_ja":"自己紹介","product_en":"Product","product_ja":"プロダクト","article_en":"Article","article_ja":"記事","ad1_en":"Create your portfolio.","ad1_ja":"ポートフォリオ<br>をつくる","logsig_en":"Login / Sign Up","logsig_ja":"ログイン / 登録","rel_en":"Related Pages","rel_ja":"関連ページ"};
   };
+
   getTime = function(){
     var t = new Date();
     var h = t.getHours();

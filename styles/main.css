@@ -475,7 +475,6 @@ font-weight: 300;
 font-size: 18px;
 border: none;
 outline: none;
-text-indent: 5px;
 margin-bottom: 1px;
 text-align: center;
 }
@@ -513,5 +512,8 @@ text-align: center;
   }
   .switch {
     display:none;
+  }
+  .search_w input{
+    text-align: left;
   }
 }
