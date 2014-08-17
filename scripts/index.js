@@ -24,7 +24,7 @@ Requires: jquery
         var height = 0 - _height;
         setTimeout(function(){
           $side_nav.css("margin-top", height);
-        }, 100);
+        }, 90);
       }
     };
     upAd = function(){

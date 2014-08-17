@@ -170,10 +170,10 @@ color: #c8c8c8;
 background: #222;
 overflow-x: hidden;
 overflow-y: hidden;
--moz-transition: width ease-in-out 0.28s, background linear 0.1s, margin-top ease-in-out 0.28s;
--webkit-transition: width ease-in-out 0.28s, background linear 0.1s, margin-top ease-in-out 0.28s;
--o-transition: width ease-in-out 0.28s, background linear 0.1s, margin-top ease-in-out 0.28s;
-transition: width ease-in-out 0.28s, background linear 0.1s, margin-top ease-in-out 0.28s;
+-moz-transition: width ease-in-out 0.28s, background linear 0.1s, margin-top ease 0.36s;
+-webkit-transition: width ease-in-out 0.28s, background linear 0.1s, margin-top ease 0.36s;
+-o-transition: width ease-in-out 0.28s, background linear 0.1s, margin-top ease 0.36s;
+transition: width ease-in-out 0.28s, background linear 0.1s, margin-top ease 0.36s;
 -ms-transform: translate(0px, 0);
 -moz-transform: translate(0px, 0);
 -webkit-transform: translate3d(0px, 0, 0);
@@ -462,6 +462,7 @@ margin-top: -7px;
 .search_w{
   width: 100%;
   padding: 62px 20px 0px;
+  background: #fff;
 }
 
 .search_w input {
