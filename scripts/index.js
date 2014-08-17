@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $logo, $card, $loading, $title_l, $search_w, init, logoPos, upAd, nLoad, iLoad, alerS;
+    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $logo, $card, $loading, $title_l, $search_w, init, logoPos, upAd, nLoad, iLoad, alertS;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
