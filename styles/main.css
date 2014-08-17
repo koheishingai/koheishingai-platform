@@ -481,6 +481,21 @@ margin-top: 0px;
   border-bottom: 1px solid #eee;
 }
 
+.menu span {
+display: block;
+position: relative;
+font-size: 16px;
+font-weight: 300;
+line-height: 46px;
+border-top: 1px #2d2d2d solid;
+height: 46px;
+text-align: center;
+color: #fff;
+background: #757575;
+border-color: #eee;
+display: none;
+}
+
 @media (max-width: 580px){
   body{
     width: 100%;
@@ -516,5 +531,8 @@ margin-top: 0px;
   }
   .search_w input{
     text-align: left;
+  }
+  .menu span{
+    display: block;
   }
 }
