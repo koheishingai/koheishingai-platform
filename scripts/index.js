@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $logo, $card, $loading, $title_l, $search_w, init, logoPos, upAd, nLoad, iLoad;
+    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $logo, $card, $loading, $title_l, $search_w, init, logoPos, upAd, nLoad, iLoad, alerS;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -18,6 +18,9 @@ Requires: jquery
     $loading = $('.loading');
     $title_l = $('.title_l');
     $search_w = $('.search_w');
+    alertS = function(){
+      alert(_browser);
+    };
     upAd = function(){
       setTimeout(function(){
         $card.addClass("up");
@@ -92,6 +95,7 @@ Requires: jquery
         }
         if(_device !== "iphone"){
           nLoad(title_l);
+          alertS();
         }else{
           iLoad(title_l+"<div>Now Loading</div>");
         }
