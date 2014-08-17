@@ -21,8 +21,10 @@ Requires: jquery
     $side_nav = $('.side-nav');
     alertS = function(){
       if(_device === "iphone" && _browser === "safari"){
-        var height = 0 - _height
-        $side_nav.css("margin-top", height);
+        var height = 0 - _height;
+        setTimeout(function(){
+          $side_nav.css("margin-top", height);
+        }, 100);
       }
     };
     upAd = function(){
