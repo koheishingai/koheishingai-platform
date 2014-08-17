@@ -5,16 +5,13 @@
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,700,300);
 
+
+
 * {
 -ms-box-sizing: border-box;
 -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
 box-sizing: border-box;
--webkit-touch-callout: none;
--webkit-user-select: none; /* Safari、Old Chrome */
--moz-user-select: none; /* Firefox */
--ms-user-select: none; /* IE10 */
-user-select: none;
 }
 a {
 border: none;
@@ -464,7 +461,7 @@ margin-top: -7px;
 
 .search_w{
   width: 100%;
-  padding: 58px 20px 0px;
+  padding: 62px 20px 0px;
 }
 
 .search_w input {
@@ -477,6 +474,7 @@ border: none;
 outline: none;
 margin-bottom: 1px;
 text-align: center;
+margin-top: 0px;
 }
 
 .search_w .underl {
@@ -512,6 +510,9 @@ text-align: center;
   }
   .switch {
     display:none;
+  }
+  .search_w{
+    padding: 1px 0px 0px;
   }
   .search_w input{
     text-align: left;

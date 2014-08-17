@@ -4,20 +4,24 @@ Requires: jquery
 */
 (function(){
   "use strict"
-  var init, getLang, setLang, getTime, getJson, setContent, viewNotify, _lang, _json, $on, $off, $html, $head, $notify;
+  var init, getLang, setLang, getTime, getJson, setContent, viewNotify, _lang, _json, $on, $off, $html, $head, $notify, $search_b;
   var socket=io.connect(":8082");
   $on = $("#switch-on");
   $off = $("#switch-off");
   $html = $("html");
   $head = $('head');
   $notify = $('.notify');
+  $search_b = $('.search_b');
   viewNotify = function(lang){
     if(lang === "ja"){
-      var alert = "日本語に設定しました"
+      var alert   = "日本語に設定しました"
+      var alert_s = "Kohei Shingaiを検索"
     }else{
       var alert = "Set to English"
+      var alert_s = "Search in Kohei Shingai"
     }
     $notify.text(alert).addClass("on");
+    $search_b.attr("placeholder", alert_s);
     setTimeout(function(){
       $notify.removeClass("on");
     }, 1200);
@@ -57,11 +61,13 @@ Requires: jquery
       $on.removeAttr("checked");
       $off.attr("checked", "");
       setContent();
+      $search_b.attr("placeholder", "Kohei Shingaiを検索");
     }else{
       $html.attr("lang", "en");
       $on.attr("checked", "");
       $off.removeAttr("checked");
       setContent();
+      $search_b.attr("placeholder", "Search in Kohei Shingai");
     }
   };
   init = function(){
