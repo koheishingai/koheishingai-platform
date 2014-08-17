@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $logo, $card, $loading, $title_l, init, logoPos, upAd, nLoad, iLoad;
+    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $logo, $card, $loading, $title_l, $search_w, init, logoPos, upAd, nLoad, iLoad;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -12,12 +12,12 @@ Requires: jquery
     _height = window.innerHeight;
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
-    //_url = window.location.pathname;
-    _url = "/";
+    _url = window.location.pathname;
     $logo = $('.logo');
     $card = $('.card');
     $loading = $('.loading');
     $title_l = $('.title_l');
+    $search_w = $('.search_w');
     upAd = function(){
       setTimeout(function(){
         $card.addClass("up");
@@ -34,8 +34,10 @@ Requires: jquery
       }else{
         if (w > h) {
           $logo.css("margin-top", h2-132);
+          $search_w.hide();
         }else{
           $logo.css("margin-top", h2-256);
+          $search_w.show();
         }
       }
     };
