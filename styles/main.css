@@ -126,6 +126,10 @@ min-width: 100%;
 height: 100%;
 padding-left: 200px;
 overflow: hidden;
+-moz-transition: background linear 0.1s;
+-webkit-transition: background linear 0.1s;
+-o-transition: background linear 0.1s;
+transition: background linear 0.1s;
 }
 article, aside, blockquote, dd, div, dl, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, noscript, ol, output, p, pre, section, table, tfoot, ul, video {
 position: relative;

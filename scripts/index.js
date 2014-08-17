@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $logo, $card, $loading, $title_l, $search_w, $side_nav, init, logoPos, upAd, nLoad, iLoad, alertS;
+    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $body, $logo, $card, $loading, $title_l, $search_w, $side_nav, init, logoPos, upAd, nLoad, iLoad, alertS;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -19,10 +19,12 @@ Requires: jquery
     $title_l = $('.title_l');
     $search_w = $('.search_w');
     $side_nav = $('.side-nav');
+    $body = $('body');
     alertS = function(){
       if(_device === "iphone" && _browser === "safari"){
         var height = 0 - _height;
         setTimeout(function(){
+          $body.css("background", "#eee");
           $side_nav.css("margin-top", height);
         }, 90);
       }
