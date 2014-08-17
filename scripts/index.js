@@ -33,7 +33,7 @@ Requires: jquery
         }
       }else{
         if (w > h) {
-          $logo.css("margin-top", h2-132);
+          $logo.css("margin-top", h2-154);
           $search_w.hide();
         }else{
           $logo.css("margin-top", h2-256);
