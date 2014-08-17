@@ -19,7 +19,9 @@ Requires: jquery
     $title_l = $('.title_l');
     $search_w = $('.search_w');
     alertS = function(){
-      alert(_browser);
+      if(_device === "iphone" && _browser === "safari"){
+        alert("test");
+      }
     };
     upAd = function(){
       setTimeout(function(){
@@ -80,6 +82,7 @@ Requires: jquery
           $loading.fadeOut(function(){
             clearInterval(_timer_l);
             upAd();
+            alertS();
           });
         }
       }
@@ -95,7 +98,6 @@ Requires: jquery
         }
         if(_device !== "iphone"){
           nLoad(title_l);
-          alertS();
         }else{
           iLoad(title_l+"<div>Now Loading</div>");
         }
