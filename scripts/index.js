@@ -22,7 +22,7 @@ Requires: jquery
     $body = $('body');
     alertS = function(){
       if(_device === "iphone" && _browser === "safari"){
-        var height = 0 - _height;
+        var height = (0 - _height) + 80;
         setTimeout(function(){
           $body.css("background", "#eee");
           $side_nav.css("margin-top", height);
