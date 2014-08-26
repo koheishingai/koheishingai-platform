@@ -368,6 +368,9 @@ transform: translateY(320px);
 -webkit-transform: translateY(320px);
 cursor: pointer;
 }
+.card:hover{
+  background: #fafafa;
+}
 .up{
 transform: translateY(0px);
 -webkit-transform: translateY(0px);    
@@ -542,6 +545,9 @@ display: none;
   }
   .search_w input{
     text-align: left;
+    height: 35px;
+    line-height: 35px;
+    text-indent: 2px;
   }
   .menu span{
     display: block;
