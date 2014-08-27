@@ -35,7 +35,7 @@ Requires: jquery
     }
   };
   getJson = function(){
-    _json = {"about_en":"About","about_ja":"自己紹介","product_en":"Product","product_ja":"プロダクト","article_en":"Article","article_ja":"記事","ad1_en":"Create your Lang-Switch.","ad1_ja":"Lang-Switch<br>をつくる","logsig_en":"Login / Sign Up","logsig_ja":"ログイン / 登録","rel_en":"Related Pages","rel_ja":"関連ページ","menu_en":"Menu","menu_ja":"メニュー"};
+    _json = {"about_en":"About","about_ja":"自己紹介","product_en":"Product","product_ja":"プロダクト","article_en":"Article","article_ja":"記事","ad1_en":"Create your Lang-Switch.","ad1_ja":"Lang-Switch<br>をつくる","logsig_en":"Login / Sign Up","logsig_ja":"ログイン / 登録","rel_en":"Related Pages","rel_ja":"関連ページ","menu_en":"Menu","menu_ja":"メニュー","caption_en":"This is English Page","caption_ja":"これは、日本語のページです"};
   };
 
   getTime = function(){
