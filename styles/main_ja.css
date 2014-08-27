@@ -19,3 +19,7 @@ body {
 .card .caption[data="rel"] {
   padding-top: 38px;
 }
+
+.content h1{
+  font-family: "メイリオ", "ヒラギノ角ゴ Pro W3", "MS PGothic", "MS UI Gothic", Helvetica, Arial, sans-serif;
+}
