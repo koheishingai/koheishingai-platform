@@ -5,9 +5,6 @@ Requires: jquery
 (function() {
     "use strict"
     var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $body, $logo, $card, $loading, $title_l, $search_w, $side_nav, init, logoPos, upAd, nLoad, iLoad, alertS;
-    var socket_r = io.connect(":8080");
-    var socket_w = io.connect(":8081");
-    var socket_b = io.connect(":8082");
     _width = window.innerWidth;
     _height = window.innerHeight;
     _device = localStorage.getItem("device");

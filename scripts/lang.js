@@ -5,7 +5,6 @@ Requires: jquery
 (function(){
   "use strict"
   var init, getLang, setLang, getTime, getJson, setContent, viewNotify, _lang, _json, $on, $off, $html, $head, $notify, $search_b;
-  var socket=io.connect(":8082");
   $on = $("#switch-on");
   $off = $("#switch-off");
   $html = $("html");
