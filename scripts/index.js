@@ -9,7 +9,7 @@ Requires: jquery
     _height = window.innerHeight;
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
-    _url = window.location.pathname;
+    _url = "/";
     $logo = $('.logo');
     $card = $('.card');
     $loading = $('.loading');
@@ -94,7 +94,7 @@ Requires: jquery
       _cnt_l = 0;
       _timer_l = setInterval(function(){
         if(_url === "/"){
-          var title_l = "Kohei Shingai";
+          var title_l = "Lang-Switch";
         }else{
           var title_l = _url.split("/").join("");
               title_l = title_l.split("_").join(" ");
