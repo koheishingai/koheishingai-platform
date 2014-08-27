@@ -14,10 +14,10 @@ Requires: jquery
   viewNotify = function(lang){
     if(lang === "ja"){
       var alert   = "日本語に設定しました"
-      var alert_s = "Kohei Shingaiを検索"
+      var alert_s = "Lang-Switchを検索"
     }else{
       var alert = "Set to English"
-      var alert_s = "Search in Kohei Shingai"
+      var alert_s = "Search in Lang-Switch"
     }
     $notify.text(alert).addClass("on");
     $search_b.attr("placeholder", alert_s);
@@ -35,7 +35,7 @@ Requires: jquery
     }
   };
   getJson = function(){
-    _json = {"about_en":"About","about_ja":"自己紹介","product_en":"Product","product_ja":"プロダクト","article_en":"Article","article_ja":"記事","ad1_en":"Create your portfolio.","ad1_ja":"ポートフォリオ<br>をつくる","logsig_en":"Login / Sign Up","logsig_ja":"ログイン / 登録","rel_en":"Related Pages","rel_ja":"関連ページ","menu_en":"Menu","menu_ja":"メニュー"};
+    _json = {"about_en":"About","about_ja":"自己紹介","product_en":"Product","product_ja":"プロダクト","article_en":"Article","article_ja":"記事","ad1_en":"Create your Lang-Switch.","ad1_ja":"Lang-Switch<br>をつくる","logsig_en":"Login / Sign Up","logsig_ja":"ログイン / 登録","rel_en":"Related Pages","rel_ja":"関連ページ","menu_en":"Menu","menu_ja":"メニュー"};
   };
 
   getTime = function(){
@@ -60,13 +60,13 @@ Requires: jquery
       $on.removeAttr("checked");
       $off.attr("checked", "");
       setContent();
-      $search_b.attr("placeholder", "Kohei Shingaiを検索");
+      $search_b.attr("placeholder", "Lang-Switchを検索");
     }else{
       $html.attr("lang", "en");
       $on.attr("checked", "");
       $off.removeAttr("checked");
       setContent();
-      $search_b.attr("placeholder", "Search in Kohei Shingai");
+      $search_b.attr("placeholder", "Search in Lang-Switch");
     }
   };
   init = function(){
@@ -77,7 +77,7 @@ Requires: jquery
   $on.change(function(){// To English
     _lang = "en";
     $('.langstyle').remove();
-    $head.append('<link class="langstyle" rel="stylesheet" href="styles/main_en.css?'+getTime()+'" type="text/css">');
+    $head.append('<link class="langstyle" rel="stylesheet" href="https://rawgithub.com/koheishingai/koheishingai-platform/lang/styles/main_en.css?'+getTime()+'" type="text/css">');
     $html.attr("lang", "en");
     setContent();
     viewNotify(_lang);
@@ -85,7 +85,7 @@ Requires: jquery
   $off.change(function(){// To Japanese
     _lang = "ja";
     $('.langstyle').remove();
-    $head.append('<link class="langstyle" rel="stylesheet" href="styles/main_ja.css?'+getTime()+'" type="text/css">');
+    $head.append('<link class="langstyle" rel="stylesheet" href="https://rawgithub.com/koheishingai/koheishingai-platform/lang/styles/main_ja.css'+getTime()+'" type="text/css">');
     $html.attr("lang", "en");
     setContent();
     viewNotify(_lang);
