@@ -85,7 +85,7 @@ Requires: jquery
   $off.change(function(){// To Japanese
     _lang = "ja";
     $('.langstyle').remove();
-    $head.append('<link class="langstyle" rel="stylesheet" href="https://rawgithub.com/koheishingai/koheishingai-platform/lang/styles/main_ja.css'+getTime()+'" type="text/css">');
+    $head.append('<link class="langstyle" rel="stylesheet" href="https://rawgithub.com/koheishingai/koheishingai-platform/lang/styles/main_ja.css?'+getTime()+'" type="text/css">');
     $html.attr("lang", "ja");
     setContent();
     viewNotify(_lang);
