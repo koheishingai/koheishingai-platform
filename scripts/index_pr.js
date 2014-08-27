@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $body, $logo, $card, $loading, $title_l, $search_w, $side_nav, init, logoPos, upAd, nLoad, iLoad, alertS, read;
+    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $title, $body, $logo, $card, $loading, $title_l, $search_w, $side_nav, $title_a, init, logoPos, upAd, nLoad, iLoad, alertS;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -13,16 +13,15 @@ Requires: jquery
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
     _url = window.location.pathname;
+    $title = $('.title');
     $logo = $('.logo');
     $card = $('.card');
     $loading = $('.loading');
     $title_l = $('.title_l');
+    $title_a = $('.title_a');
     $search_w = $('.search_w');
     $side_nav = $('.side-nav');
     $body = $('body');
-    read = function(){
-      socket_r.emit("read", _url);
-    }
     alertS = function(){
       if(_device === "iphone" && _browser === "safari"){
         var height = (0 - _height) + 80;
@@ -57,8 +56,9 @@ Requires: jquery
     };
     nLoad = function(title_l){
       if(_cnt_l === 0){
+        $title.text(title_l);
+        $title_a.text(title_l);
         $title_l.text(title_l).removeClass("step4").addClass("step1");
-        read();
       }else if(_cnt_l === 1){
         $title_l.removeClass("step1").addClass("step2");        
       }else if(_cnt_l === 2){
@@ -82,8 +82,9 @@ Requires: jquery
     };
     iLoad = function(title_l){
       if(_cnt_l === 0){
+        $title.text(title_l);
+        $title_a.text(title_l);
         $title_l.html(title_l);
-        read();
       }else if(_cnt_l === 1){
                
       }else if(_cnt_l === 2){

@@ -4,14 +4,17 @@ Requires: jquery
 */
 (function(){
   "use strict"
-  var init, getLang, setLang, getTime, getJson, setContent, viewNotify, _lang, _json, $on, $off, $html, $head, $notify, $search_b;
-  var socket=io.connect(":8082");
+  var init, getLang, setLang, getTime, getJson, setContent, viewNotify, _lang, _json, _url, _title, $on, $off, $html, $head, $notify, $search_b;
+  var socket_r = io.connect(":8080");
   $on = $("#switch-on");
   $off = $("#switch-off");
   $html = $("html");
   $head = $('head');
   $notify = $('.notify');
   $search_b = $('.search_b');
+  _url = window.location.pathname;
+  _title = _url.split('/').join('');
+  _title = _title.split('_').join(' ');
   viewNotify = function(lang){
     if(lang === "ja"){
       var alert   = "日本語に設定しました"
@@ -36,9 +39,8 @@ Requires: jquery
     }
   };
   getJson = function(){
-    _json = {"about_en":"About","about_ja":"自己紹介","product_en":"Product","product_ja":"プロダクト","article_en":"Article","article_ja":"記事","ad1_en":"Create your portfolio.","ad1_ja":"ポートフォリオ<br>をつくる","logsig_en":"Login / Sign Up","logsig_ja":"ログイン / 登録","rel_en":"Related Pages","rel_ja":"関連ページ","menu_en":"Menu","menu_ja":"メニュー"};
+    socket_r.emit('readLang', _url);
   };
-
   getTime = function(){
     var t = new Date();
     var h = t.getHours();
@@ -61,18 +63,17 @@ Requires: jquery
       $on.removeAttr("checked");
       $off.attr("checked", "");
       setContent();
-      $search_b.attr("placeholder", "Kohei Shingaiを検索");
+      $search_b.attr("placeholder", _title+"を検索");
     }else{
       $html.attr("lang", "en");
       $on.attr("checked", "");
       $off.removeAttr("checked");
       setContent();
-      $search_b.attr("placeholder", "Search in Kohei Shingai");
+      $search_b.attr("placeholder", "Search in "+_title);
     }
   };
   init = function(){
     getJson();
-    setLang();
   };
   init();
   $on.change(function(){// To English
@@ -90,5 +91,9 @@ Requires: jquery
     $html.attr("lang", "en");
     setContent();
     viewNotify(_lang);
+  });
+  socket_r.on('readLang', function(val){
+    _json = JSON.parse(val);
+    setLang();
   });
 })();
