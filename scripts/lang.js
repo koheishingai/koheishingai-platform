@@ -54,7 +54,7 @@ Requires: jquery
   };
   setLang = function(){
     _lang = getLang();
-    $head.append('<link class="langstyle" rel="stylesheet" href="https://rawgithub.com/koheishingai/koheishingai-platform/lang/styles/main'+_lang+'.css?'+getTime()+'" type="text/css">');
+    $head.append('<link class="langstyle" rel="stylesheet" href="https://rawgithub.com/koheishingai/koheishingai-platform/lang/styles/main_'+_lang+'.css?'+getTime()+'" type="text/css">');
     if(_lang === 'ja'){
       $html.attr("lang", "ja");
       $on.removeAttr("checked");
