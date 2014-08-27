@@ -86,7 +86,7 @@ Requires: jquery
     _lang = "ja";
     $('.langstyle').remove();
     $head.append('<link class="langstyle" rel="stylesheet" href="https://rawgithub.com/koheishingai/koheishingai-platform/lang/styles/main_ja.css'+getTime()+'" type="text/css">');
-    $html.attr("lang", "en");
+    $html.attr("lang", "ja");
     setContent();
     viewNotify(_lang);
   });
