@@ -553,6 +553,13 @@ cursor: pointer;
   margin-top: -20px;
 }
 
+.icon.design {
+background-image: url(../images/draw.svg);
+background-size: 17px;
+background-position-x: 14px;
+background-position-y: 7px;
+}
+
 @media (max-width: 580px){
   body{
     width: 100%;
