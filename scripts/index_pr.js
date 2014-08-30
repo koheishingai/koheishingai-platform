@@ -18,7 +18,7 @@ Requires: jquery
     $card = $('.card');
     $loading = $('.loading');
     $title_l = $('.title_l');
-    $title_a = $('.title_a');
+    $title_a = $('.logo a');
     $search_w = $('.search_w');
     $side_nav = $('.side-nav');
     $menu_c = $('.menu_c');
