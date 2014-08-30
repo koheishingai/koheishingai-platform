@@ -4,11 +4,12 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $body, $logo, $card, $loading, $title_l, $search_w, $side_nav, init, logoPos, upAd, nLoad, iLoad, alertS;
+    var _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $body, $logo, $card, $loading, $title_l, $search_w, $search_b, $side_nav, $menu_c, $content, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
     _width = window.innerWidth;
+    _width_c = 0;
     _height = window.innerHeight;
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
@@ -20,6 +21,9 @@ Requires: jquery
     $search_w = $('.search_w');
     $side_nav = $('.side-nav');
     $body = $('body');
+    $menu_c = $('.menu_c');
+    $content = $('.content');
+    $search_b = $('.search_b');
     alertS = function(){
       if(_device === "iphone" && _browser === "safari"){
         var height = (0 - _height) + 80;
@@ -32,6 +36,7 @@ Requires: jquery
     upAd = function(){
       setTimeout(function(){
         $card.addClass("up");
+        $menu_c.removeClass("left_m_c");
       }, 420);
     };
     logoPos = function(w, h){
@@ -120,5 +125,18 @@ Requires: jquery
         _timer = setTimeout(function() {
             logoPos(width, height);
         }, 100)
+    });
+    closeMenu = function(){
+      $card.removeClass("up");
+      $menu_c.addClass("left_m_c");    
+    };
+    openMenu = function(){
+    
+    };
+    $menu_c.click(function(){
+      closeMenu();
+    });
+    $search_b.keydown(function(){
+      closeMenu();
     });
 })();
