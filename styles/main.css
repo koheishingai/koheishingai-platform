@@ -560,6 +560,13 @@ background-position-x: 14px;
 background-position-y: 7px;
 }
 
+.icon.earth {
+background-image: url(../images/earth.svg);
+background-size: 26px;
+background-position-y: 9px;
+background-position-x: 10px;
+}
+
 @media (max-width: 580px){
   body{
     width: 100%;
