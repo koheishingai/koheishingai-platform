@@ -13,7 +13,7 @@ Requires: jquery
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
     _url = window.location.pathname;
-    $title = $('.title');
+    $title = $('title');
     $logo = $('.logo');
     $card = $('.card');
     $loading = $('.loading');

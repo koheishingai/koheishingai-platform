@@ -48,6 +48,10 @@ line-height: 46px;
 padding-left: 50px;
 border-top: 1px #2d2d2d solid;
 height: 46px;
+-o-transition: background ease-in-out 0.28s;
+-moz-transition: background ease-in-out 0.28s;
+-webkit-transition: background ease-in-out 0.28s;
+transition: background ease-in-out 0.28s;
 }
 .side-nav.white-nav li a {
 color: #757575;
@@ -362,8 +366,8 @@ background-color: #fff;
 width: 100%;
 height: 100%;
 border-radius: 2px;
--webkit-transition: background-color ease-in 0.22s 0.02s, box-shadow ease-in 0.22s 0.02s, -webkit-transform 0.2s ease-in-out;
-transition: background-color ease-in 0.22s 0.02s, -webkit-box-shadow ease-in 0.22s 0.02s, transform 0.2s ease-in-out;
+-webkit-transition: background-color ease-in 0.28s, box-shadow ease-in 0.22s 0.02s, -webkit-transform 0.2s ease-in-out;
+transition: background-color ease-in 0.28s, -webkit-box-shadow ease-in 0.22s 0.02s, transform 0.2s ease-in-out;
 transform: translateY(320px);
 -webkit-transform: translateY(320px);
 cursor: pointer;
@@ -504,10 +508,49 @@ background: #757575;
 border-color: #eee;
 display: none;
 }
-
 .avater{
   width: 100%;
   height: 100%;
+}
+.content{
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+}
+
+.menu_c {
+position: relative;
+float: left;
+width: 200px;
+height: 200px;
+margin-right: 10px;
+margin-bottom: 10px;
+border: 1px #eee solid;
+text-align: center;
+-moz-transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s;
+-webkit-transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s;
+-o-transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s;
+transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s;
+cursor: pointer;
+}
+
+.menu_c:hover{
+  box-shadow: 0px 1px 4px rgba(0,0,0,.1);
+  background: #fafafa;
+}
+
+.menu_c .text{
+  display: block;
+  position: absolute;
+  font-size: 24px;
+  font-weight: 300;
+  color: #9e9e9e;
+  border-color: #eee;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  margin-bottom: 0px;
+  margin-top: -20px;
 }
 
 @media (max-width: 580px){
@@ -551,5 +594,8 @@ display: none;
   }
   .menu span{
     display: block;
+  }
+  .menu_c {
+    display: none;
   }
 }
