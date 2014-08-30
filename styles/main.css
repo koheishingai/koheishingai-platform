@@ -598,4 +598,7 @@ cursor: pointer;
   .menu_c {
     display: none;
   }
+  .help{
+    display: none;
+  }
 }

@@ -36,7 +36,7 @@ Requires: jquery
     }
   };
   getJson = function(){
-    _json = {"about_en":"Profile","about_ja":"プロフィール","product_en":"Product","product_ja":"プロダクト","article_en":"Article","article_ja":"記事","ad1_en":"Create your portfolio.","ad1_ja":"ポートフォリオ<br>をつくる","logsig_en":"Login","logsig_ja":"ログイン","rel_en":"Related Pages","rel_ja":"関連ページ","menu_en":"Menu","menu_ja":"メニュー","design_en":"<p class='text'>Design</p>","design_ja":"<p class='text'>デザイン</p>","language_en":"<p class='text'>Language</p>","language_ja":"<p class='text'>言語</p>"};
+    _json = {"about_en":"Profile","about_ja":"プロフィール","product_en":"Product","product_ja":"プロダクト","article_en":"Article","article_ja":"記事","ad1_en":"Create your portfolio.","ad1_ja":"ポートフォリオ<br>をつくる","logsig_en":"Login","logsig_ja":"ログイン","rel_en":"Related Pages","rel_ja":"関連ページ","menu_en":"Menu","menu_ja":"メニュー","design_en":"<p class='text'>Design</p>","design_ja":"<p class='text'>デザイン</p>","language_en":"<p class='text'>Language</p>","language_ja":"<p class='text'>言語</p>","help_en":"<p class='text'>How to Use</p>","help_ja":"<p class='text'>使い方</p>"};
   };
 
   getTime = function(){
@@ -58,14 +58,10 @@ Requires: jquery
     $head.append('<link class="langstyle" rel="stylesheet" href="styles/main_'+_lang+'.css?'+getTime()+'" type="text/css">');
     if(_lang === 'ja'){
       $html.attr("lang", "ja");
-      $on.removeAttr("checked");
-      $off.attr("checked", "");
       setContent();
       $search_b.attr("placeholder", "Kohei Shingaiを検索");
     }else{
       $html.attr("lang", "en");
-      $on.attr("checked", "");
-      $off.removeAttr("checked");
       setContent();
       $search_b.attr("placeholder", "Search in Kohei Shingai");
     }
