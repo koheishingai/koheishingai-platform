@@ -527,11 +527,17 @@ margin-right: 10px;
 margin-bottom: 10px;
 border: 1px #eee solid;
 text-align: center;
--moz-transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s;
--webkit-transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s;
--o-transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s;
-transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s;
+-moz-transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s, -moz-transform 0.2s ease-in-out;
+-webkit-transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s, -webkit-transform 0.2s ease-in-out;
+-o-transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s, -o-transform 0.2s ease-in-out;
+transition: border-color ease-in-out 0.28s, box-shadow ease-in-out 0.28s, background ease-in-out 0.28s, transform 0.2s ease-in-out;
 cursor: pointer;
+}
+.left_m_c{
+  -moz-transform: translateX(-1000px);
+  -webkit-transform: translateX(-1000px);
+  -o-transform: translateX(-1000px);
+  transform: translateX(-1000px);
 }
 
 .menu_c:hover{
