@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $notify, $body, $logo, $card, $loading, $title_l, $search_w, $search_b, $side_nav, $menu_c, $content, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify;
+    var _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $notify, $body, $logo, $card, $loading, $title_l, $search_w, $search_b, $side_nav, $menu_c, $content, $sidemenu, $rightmenu, $frame, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -20,11 +20,14 @@ Requires: jquery
     $title_l = $('.title_l');
     $search_w = $('.search_w');
     $side_nav = $('.side-nav');
+    $sidemenu = $('.sidemenu');
     $body = $('body');
     $menu_c = $('.menu_c');
     $content = $('.content');
     $search_b = $('.search_b');
     $notify = $('.notify');
+    $rightmenu = $('.rightmenu');
+    $frame = $('.frame');
     notify = function(mes){
       $notify.text(mes).addClass("on");
       setTimeout(function(){
@@ -146,6 +149,21 @@ Requires: jquery
       var text = $(this).text();
       closeMenu();
       notify(text);
+    });
+    $sidemenu.click(function(){
+      var text = $(this).text();
+      closeMenu();
+      notify(text);  
+    });
+    $rightmenu.click(function(){
+      var text = $(this).text();
+      closeMenu();
+      notify(text);
+      $frame.fadeOut(function(){
+        $notify.fadeOut(function(){
+           
+        });
+      });    
     });
     $search_b.keydown(function(){
       closeMenu();

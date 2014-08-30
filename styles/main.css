@@ -573,6 +573,10 @@ background-position-y: 9px;
 background-position-x: 10px;
 }
 
+.sidemenu{
+  cursor: pointer;
+}
+
 @media (max-width: 580px){
   body{
     width: 100%;
