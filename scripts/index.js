@@ -133,6 +133,8 @@ Requires: jquery
             logoPos(width, height);
         }, 100)
     });
+    
+    // Notify
     closeMenu = function(){
       $card.removeClass("up");
       $menu_c.addClass("left_m_c");    
