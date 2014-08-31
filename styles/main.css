@@ -48,6 +48,7 @@ line-height: 46px;
 padding-left: 50px;
 border-top: 1px #2d2d2d solid;
 height: 46px;
+cursor: pointer;
 -o-transition: background ease-in-out 0.28s;
 -moz-transition: background ease-in-out 0.28s;
 -webkit-transition: background ease-in-out 0.28s;
