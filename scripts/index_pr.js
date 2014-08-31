@@ -4,26 +4,42 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $menu_c, $title, $body, $logo, $card, $loading, $title_l, $search_w, $search_b, $side_nav, $title_a, $notify, init, logoPos, upAd, nLoad, iLoad, alertS, notify, openMenu, closeMenu;
+    var _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
     _width = window.innerWidth;
+    _width_c = 0;
     _height = window.innerHeight;
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
     _url = window.location.pathname;
-    $title = $('title');
     $logo = $('.logo');
     $card = $('.card');
     $loading = $('.loading');
+    $title = $('title');
     $title_l = $('.title_l');
     $title_a = $('.logo a');
     $search_w = $('.search_w');
     $side_nav = $('.side-nav');
-    $menu_c = $('.menu_c');
+    $sidemenu = $('.sidemenu');
     $body = $('body');
+    $menu_c = $('.menu_c');
+    $content = $('.content');
+    $search_b = $('.search_b');
     $notify = $('.notify');
+    $rightmenu = $('.rightmenu');
+    $frame = $('.frame');
+    $_c = $('._c');
+    setCard = function(){
+      var width = $content.innerWidth() - 40;
+      var height = $content.innerHeight() - 110;
+      $_c.css({"height":height,"width":width,"top":10,"left":20});
+    };
+    upCard = function(){
+      setCard();
+    
+    };
     notify = function(mes){
       $notify.text(mes).addClass("on");
       setTimeout(function(){
@@ -143,7 +159,7 @@ Requires: jquery
     // Notify
     closeMenu = function(){
       $card.removeClass("up");
-      $menu_c.addClass("left_m_c"); 
+      $menu_c.addClass("left_m_c");    
     };
     openMenu = function(){
     
@@ -152,6 +168,23 @@ Requires: jquery
       var text = $(this).text();
       closeMenu();
       notify(text);
+      upCard();
+    });
+    $sidemenu.click(function(){
+      var text = $(this).text();
+      closeMenu();
+      notify(text);
+      upCard();  
+    });
+    $rightmenu.click(function(){
+      var text = $(this).text();
+      closeMenu();
+      notify(text);
+      $frame.fadeOut(function(){
+        $notify.fadeOut(function(){
+           
+        });
+      });    
     });
     $search_b.keydown(function(){
       closeMenu();
