@@ -578,6 +578,24 @@ background-position-x: 10px;
   cursor: pointer;
 }
 
+._c {
+background: #fff;
+overflow: hidden;
+position: absolute;
+transition: transform 0.2s ease-in-out;
+-webkit-transition: -webkit-transform 0.2s ease-in-out;
+}
+
+.main_c{
+  overflow: visible;
+  padding-right: 188px;
+}
+
+.down_c {
+  transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+}
+
 @media (max-width: 580px){
   body{
     width: 100%;
@@ -620,10 +638,7 @@ background-position-x: 10px;
   .menu span{
     display: block;
   }
-  .menu_c {
-    display: none;
-  }
-  .help{
+  ._c {
     display: none;
   }
 }

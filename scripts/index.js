@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $notify, $body, $logo, $card, $loading, $title_l, $search_w, $search_b, $side_nav, $menu_c, $content, $sidemenu, $rightmenu, $frame, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify;
+    var _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $notify, $body, $logo, $card, $loading, $title_l, $search_w, $search_b, $side_nav, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -28,6 +28,16 @@ Requires: jquery
     $notify = $('.notify');
     $rightmenu = $('.rightmenu');
     $frame = $('.frame');
+    $_c = $('._c');
+    setCard = function(){
+      var width = $content.innerWidth() - 40;
+      var height = $content.innerHeight() - 110;
+      $_c.css({"height":height,"width":width,"top":10,"left":20});
+    };
+    upCard = function(){
+      setCard();
+    
+    };
     notify = function(mes){
       $notify.text(mes).addClass("on");
       setTimeout(function(){
@@ -69,6 +79,7 @@ Requires: jquery
     };
     nLoad = function(title_l){
       if(_cnt_l === 0){
+        setCard();
         $title_l.text(title_l).removeClass("step4").addClass("step1");
       }else if(_cnt_l === 1){
         $title_l.removeClass("step1").addClass("step2");        
@@ -134,6 +145,7 @@ Requires: jquery
         }
         _timer = setTimeout(function() {
             logoPos(width, height);
+            setCard();
         }, 100)
     });
     
@@ -149,11 +161,13 @@ Requires: jquery
       var text = $(this).text();
       closeMenu();
       notify(text);
+      upCard();
     });
     $sidemenu.click(function(){
       var text = $(this).text();
       closeMenu();
-      notify(text);  
+      notify(text);
+      upCard();  
     });
     $rightmenu.click(function(){
       var text = $(this).text();
