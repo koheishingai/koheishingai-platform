@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $notify, $body, $logo, $card, $loading, $title_l, $search_w, $search_b, $side_nav, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard;
+    var _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -14,10 +14,14 @@ Requires: jquery
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
     _url = window.location.pathname;
+    _text = "";
+    _data = "";
     $logo = $('.logo');
     $card = $('.card');
     $loading = $('.loading');
+    $title = $('title');
     $title_l = $('.title_l');
+    $title_a = $('.logo a');
     $search_w = $('.search_w');
     $side_nav = $('.side-nav');
     $sidemenu = $('.sidemenu');
@@ -29,6 +33,9 @@ Requires: jquery
     $rightmenu = $('.rightmenu');
     $frame = $('.frame');
     $_c = $('._c');
+    addHash = function(){
+      window.location.hash = _data;
+    };
     setCard = function(){
       var width = $content.innerWidth() - 40;
       var height = $content.innerHeight() - 110;
@@ -36,10 +43,9 @@ Requires: jquery
     };
     upCard = function(){
       setCard();
-    
     };
-    notify = function(mes){
-      $notify.text(mes).addClass("on");
+    notify = function(){
+      $notify.text(_text).addClass("on");
       setTimeout(function(){
         $notify.removeClass("on");
       }, 1200);
@@ -158,26 +164,30 @@ Requires: jquery
     
     };
     $menu_c.click(function(){
-      var text = $(this).text();
+      _text = $(this).text();
+      _data = $(this).attr("data");
       closeMenu();
-      notify(text);
+      notify();
       upCard();
+      addHash();
     });
     $sidemenu.click(function(){
-      var text = $(this).text();
+      _text = $(this).text().split(" ").join("");
+      _data = $(this).attr("datas");
       closeMenu();
-      notify(text);
-      upCard();  
+      notify();
+      upCard();
+      addHash();  
     });
     $rightmenu.click(function(){
-      var text = $(this).text();
+      _text = $(this).text();
       closeMenu();
-      notify(text);
+      notify();
       $frame.fadeOut(function(){
         $notify.fadeOut(function(){
            
         });
-      });    
+      });   
     });
     $search_b.keydown(function(){
       closeMenu();
