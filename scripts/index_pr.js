@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash;
+    var _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -33,8 +33,15 @@ Requires: jquery
     $rightmenu = $('.rightmenu');
     $frame = $('.frame');
     $_c = $('._c');
+    changeC = function(){
+      if(_data !== ""){
+        var $elm = $("."+_data + "_c");
+        $elm.removeClass("down_c");
+      }
+    };
     addHash = function(){
       window.location.hash = _data;
+      changeC();
     };
     setCard = function(){
       var width = $content.innerWidth() - 40;
@@ -62,7 +69,7 @@ Requires: jquery
     upAd = function(){
       setTimeout(function(){
         $card.addClass("up");
-        $menu_c.removeClass("left_m_c"); 
+        $menu_c.removeClass("left_m_c");
       }, 420);
     };
     logoPos = function(w, h){
@@ -158,6 +165,7 @@ Requires: jquery
         }
         _timer = setTimeout(function() {
             logoPos(width, height);
+            setCard();
         }, 100)
     });
     // Notify
@@ -166,7 +174,11 @@ Requires: jquery
       $menu_c.addClass("left_m_c");    
     };
     openMenu = function(){
-    
+      _text = "";
+      _data = "";
+      window.location.hash = "";
+      $card.addClass("up");
+      $menu_c.removeClass("left_m_c");    
     };
     $menu_c.click(function(){
       _text = $(this).text();
@@ -194,7 +206,15 @@ Requires: jquery
         });
       });   
     });
-    $search_b.keydown(function(){
-      closeMenu();
+    $search_b.keyup(function(){
+      var len = $search_b.val().length;
+      if(len > 0){
+        _data = "search";
+        closeMenu();
+        addHash();
+      }else{
+        openMenu();
+        addHash();
+      }
     });
 })();
