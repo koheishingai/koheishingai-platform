@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
+    var _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -33,6 +33,8 @@ Requires: jquery
     $rightmenu = $('.rightmenu');
     $frame = $('.frame');
     $_c = $('._c');
+    $close = $('.close');
+    $main_c = $('.main_c');
     changeC = function(){
       if(_data !== ""){
         var $elm = $("."+_data + "_c");
@@ -205,6 +207,12 @@ Requires: jquery
            
         });
       });   
+    });
+    $close.click(function(){
+      $_c.addClass('down_c');
+      $main_c.removeClass('down_c');
+      openMenu();
+      addHash();
     });
     $search_b.keyup(function(){
       var len = $search_b.val().length;
