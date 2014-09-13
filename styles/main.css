@@ -667,7 +667,7 @@ font-weight: 900;
 font-size: 20px;
 letter-spacing: 2px;
 text-align: center;
-color: #696969;
+color: rgba(0, 0, 0, 0.2);
 font-family: arial;
 cursor: default;
 }
