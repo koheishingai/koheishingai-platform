@@ -677,15 +677,18 @@ cursor: default;
 cursor: pointer;
 height: 47px;
 border-bottom: 1px solid lightgrey;
+opacity: 0.7;
+transition: opacity ease-in-out 0.28s;
+-webkit-transition: opacity ease-in-out 0.28s; 
 }
 
 .rm .p {
 background: url(../images/phone.svg) no-repeat;
 background-size: 35px 35px;
 background-position: 6px 5px;
-opacity: 0.7;
+width: 100%;
+height: 100%;
 }
-
 .icon.r {
 background-image: url(../images/>.svg);
 background-size: 23px;
@@ -707,6 +710,11 @@ background-image: url(../images/>>.svg) !important;
 
 .sel{
   color: #757575 !important;
+}
+
+.rm .i:hover {
+opacity: 1;
+background: #fafafa;
 }
 
 @media (max-width: 580px){
