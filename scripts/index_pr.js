@@ -63,8 +63,7 @@ Requires: jquery
       }, 1200);
     };
     alertS = function(){
-      //if(_device === "iphone" && _browser === "safari"){
-      if(_device === "iphone"){
+      if(_device === "iphone" && _browser === "safari"){
         var height = (0 - _height) + 80;
         setTimeout(function(){
           $body.css("background", "#eee");
@@ -135,16 +134,16 @@ Requires: jquery
         
       }else if(_cnt_l === 3){
         
-        //if(_url !== "/"){
-        //  _cnt_l = -1;
-        //}else{
+        if(_url !== "/"){
+          _cnt_l = -1;
+        }else{
           logoPos(_width, _height);
           $loading.fadeOut(function(){
             clearInterval(_timer_l);
             upAd();
             alertS();
           });
-        //}
+        }
       }
     };
     init = function(){
