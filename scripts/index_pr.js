@@ -106,7 +106,7 @@ Requires: jquery
         $title_l.text(title_l).removeClass("step4").addClass("step1");
         $_c.addClass(DOWNC);
         $main_c.removeClass(DOWNC);
-        $sm.hide();
+        $sm.removeClass("son");
       }else if(_cnt_l === 1){
         $title_l.removeClass("step1").addClass("step2");        
       }else if(_cnt_l === 2){
@@ -200,7 +200,7 @@ Requires: jquery
       notify();
       upCard();
       addHash();
-      $sm.show();
+      $sm.addClass("son");
       $in.removeClass("sel");
       $elm.addClass("sel");
     });
@@ -212,7 +212,7 @@ Requires: jquery
       notify();
       upCard();
       addHash();
-      $sm.show();
+      $sm.addClass("son");
       $sidemenu.removeClass("fa");
       $in.removeClass("sel");
       $(this).addClass("fa");
@@ -236,9 +236,8 @@ Requires: jquery
       $main_c.removeClass(DOWNC);
       openMenu();
       addHash();
-      $sm.hide();
+      $sm.removeClass("son");
       $sidemenu.removeClass("fa");
-      $in.removeClass("sel");
     });
     $search_b.keyup(function(){
       var len = $search_b.val().length;
@@ -246,13 +245,12 @@ Requires: jquery
         _data = "search";
         closeMenu();
         addHash();
-        $sm.show();
+        $sm.addClass("son");
       }else{
         openMenu();
         addHash();
-        $sm.hide();
+        $sm.removeClass("son");
         $sidemenu.removeClass("fa");
-        $in.removeClass("sel");
       }
     });
 })();

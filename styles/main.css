@@ -717,6 +717,18 @@ opacity: 1;
 background: #fafafa;
 }
 
+.sm{
+  transform : translateX(-200px);
+  -webkit-transform : translateX(-200px);
+  transition: transform 0.28s ease-in-out;
+  -webkit-transition: -webkit-transform 0.28s ease-in-out;
+}
+
+.son{
+  transform : translateX(0px);
+  -webkit-transform : translateX(0px);
+}
+
 @media (max-width: 580px){
   body{
     width: 100%;
