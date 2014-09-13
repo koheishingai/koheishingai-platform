@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var DOWNC, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
+    var DOWNC, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -14,8 +14,8 @@ Requires: jquery
     _height = window.innerHeight;
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
-    //_url = window.location.pathname;
-    _url = "Summary";
+    _url = window.location.pathname;
+    //_url = "Summary";
     _text = "";
     _data = "";
     $logo = $('.logo');
@@ -39,6 +39,8 @@ Requires: jquery
     $close = $('.close');
     $main_c = $('.main_c');
     $sm = $('.sm');
+    $sma = $('.sm li a');
+    $in = $('.sm .in');
     changeC = function(){
       if(_data !== ""){
         var $elm = $("."+_data + "_c");
@@ -202,6 +204,7 @@ Requires: jquery
     $sidemenu.click(function(){
       _text = $(this).text().split(" ").join("");
       _data = $(this).attr("datas");
+      var flg = $(this).hasClass("in");
       closeMenu();
       notify();
       upCard();
@@ -209,6 +212,11 @@ Requires: jquery
       $sm.show();
       $sidemenu.removeClass("fa");
       $(this).addClass("fa");
+      if(flg === true){
+        $sidemenu.removeClass("fa");
+        $in.removeClass("sel");
+        $(this).addClass("sel");
+      }
     });
     $rightmenu.click(function(){
       _text = $(this).text();
@@ -227,6 +235,7 @@ Requires: jquery
       addHash();
       $sm.hide();
       $sidemenu.removeClass("fa");
+      $in.removeClass("sel");
     });
     $search_b.keyup(function(){
       var len = $search_b.val().length;
@@ -240,6 +249,7 @@ Requires: jquery
         addHash();
         $sm.hide();
         $sidemenu.removeClass("fa");
+        $in.removeClass("sel");
       }
     });
 })();
