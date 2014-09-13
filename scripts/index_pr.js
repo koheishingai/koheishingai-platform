@@ -211,10 +211,10 @@ Requires: jquery
       addHash();
       $sm.show();
       $sidemenu.removeClass("fa");
+      $in.removeClass("sel");
       $(this).addClass("fa");
       if(flg === true){
         $sidemenu.removeClass("fa");
-        $in.removeClass("sel");
         $(this).addClass("sel");
       }
     });
