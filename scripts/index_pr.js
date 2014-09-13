@@ -195,11 +195,14 @@ Requires: jquery
     $menu_c.click(function(){
       _text = $(this).text();
       _data = $(this).attr("data");
+      var $elm = $("."+_data + "_s");
       closeMenu();
       notify();
       upCard();
       addHash();
       $sm.show();
+      $in.removeClass("sel");
+      $elm.addClass("sel");
     });
     $sidemenu.click(function(){
       _text = $(this).text().split(" ").join("");
