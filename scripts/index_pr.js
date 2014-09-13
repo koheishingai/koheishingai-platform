@@ -135,16 +135,16 @@ Requires: jquery
         
       }else if(_cnt_l === 3){
         
-        if(_url !== "/"){
-          _cnt_l = -1;
-        }else{
+        //if(_url !== "/"){
+        //  _cnt_l = -1;
+        //}else{
           logoPos(_width, _height);
           $loading.fadeOut(function(){
             clearInterval(_timer_l);
             upAd();
             alertS();
           });
-        }
+        //}
       }
     };
     init = function(){
