@@ -4,10 +4,11 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
+    var DOWNC, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
+    DOWNC = "down_c";
     _width = window.innerWidth;
     _width_c = 0;
     _height = window.innerHeight;
@@ -38,7 +39,7 @@ Requires: jquery
     changeC = function(){
       if(_data !== ""){
         var $elm = $("."+_data + "_c");
-        $elm.removeClass("down_c");
+        $elm.removeClass(DOWNC);
       }
     };
     addHash = function(){
@@ -97,6 +98,8 @@ Requires: jquery
         $title.text(title_l);
         $title_a.text(title_l);
         $title_l.text(title_l).removeClass("step4").addClass("step1");
+        $_c.addClass(DOWNC);
+        $main_c.removeClass(DOWNC);
       }else if(_cnt_l === 1){
         $title_l.removeClass("step1").addClass("step2");        
       }else if(_cnt_l === 2){
@@ -196,7 +199,7 @@ Requires: jquery
       closeMenu();
       notify();
       upCard();
-      addHash();  
+      addHash();
     });
     $rightmenu.click(function(){
       _text = $(this).text();
@@ -209,8 +212,8 @@ Requires: jquery
       });   
     });
     $close.click(function(){
-      $_c.addClass('down_c');
-      $main_c.removeClass('down_c');
+      $_c.addClass(DOWNC);
+      $main_c.removeClass(DOWNC);
       openMenu();
       addHash();
     });
