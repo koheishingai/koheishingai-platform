@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var DOWNC, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
+    var DOWNC, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, $ph, $phi, $ops, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -41,6 +41,9 @@ Requires: jquery
     $sm = $('.sm');
     $sma = $('.sm li a');
     $in = $('.sm .in');
+    $ph = $('.rm .p');
+    $phi = $('.rm .i');
+    $ops = $('.ops');
     changeC = function(){
       if(_data !== ""){
         var $elm = $("."+_data + "_c");
@@ -203,6 +206,7 @@ Requires: jquery
       $sm.addClass("son");
       $in.removeClass("sel");
       $elm.addClass("sel");
+      $phi.removeClass("ops");
     });
     $sidemenu.click(function(){
       _text = $(this).text().split(" ").join("");
@@ -216,6 +220,7 @@ Requires: jquery
       $sidemenu.removeClass("fa");
       $in.removeClass("sel");
       $(this).addClass("fa");
+      $phi.removeClass("ops");
       if(flg === true){
         $sidemenu.removeClass("fa");
         $(this).addClass("sel");
@@ -238,6 +243,7 @@ Requires: jquery
       addHash();
       $sm.removeClass("son");
       $sidemenu.removeClass("fa");
+      $phi.removeClass("ops");
     });
     $search_b.keyup(function(){
       var len = $search_b.val().length;
@@ -251,6 +257,20 @@ Requires: jquery
         addHash();
         $sm.removeClass("son");
         $sidemenu.removeClass("fa");
+        $phi.removeClass("ops");
       }
+    });
+    $ph.click(function(){
+      _text = $(this).text().split(" ").join("");
+      _data = "phone";
+      var flg = $(this).hasClass("in");
+      closeMenu();
+      notify();
+      upCard();
+      addHash();
+      $sm.addClass("son");
+      $sidemenu.removeClass("fa");
+      $in.removeClass("sel");
+      $phi.addClass("ops");
     });
 })();

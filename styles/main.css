@@ -729,6 +729,10 @@ background: #fafafa;
   -webkit-transform : translateX(0px);
 }
 
+.ops{
+  opacity: 1 !important;
+}
+
 @media (max-width: 580px){
   body{
     width: 100%;
