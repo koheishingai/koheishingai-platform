@@ -588,9 +588,10 @@ transition: transform 0.2s ease-in-out, opacity 0.06s linear;
 -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.06s linear;
 }
 
-.main_c{
-  overflow: visible;
-  padding-right: 188px;
+.main_c {
+overflow: visible;
+padding-right: 188px;
+overflow-y: auto;
 }
 
 .down_c {
