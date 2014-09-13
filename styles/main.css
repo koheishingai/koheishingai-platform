@@ -584,8 +584,8 @@ background-position-x: 10px;
 background: #fff;
 overflow: hidden;
 position: absolute;
-transition: transform 0.2s ease-in-out;
--webkit-transition: -webkit-transform 0.2s ease-in-out;
+transition: transform 0.2s ease-in-out, opacity 0.06s linear;
+-webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.06s linear;
 }
 
 .main_c{
@@ -596,6 +596,7 @@ transition: transform 0.2s ease-in-out;
 .down_c {
   transform: translateY(200%);
   -webkit-transform: translateY(200%);
+  opacity: 0;
 }
 
 ._c .close{
@@ -653,7 +654,6 @@ margin: 0px;
 padding: 0px;
 height: 15px;
 text-align: center;
-FIXME: disabling dock movement for now, cursor would be misleading:;
 -moz-user-select: none;
 -webkit-user-select: none;
 -ms-user-select: none;

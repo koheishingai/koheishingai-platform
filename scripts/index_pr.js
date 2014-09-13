@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var DOWNC, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
+    var DOWNC, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -14,7 +14,8 @@ Requires: jquery
     _height = window.innerHeight;
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
-    _url = window.location.pathname;
+    //_url = window.location.pathname;
+    _url = "Summary";
     _text = "";
     _data = "";
     $logo = $('.logo');
@@ -34,11 +35,13 @@ Requires: jquery
     $rightmenu = $('.rightmenu');
     $frame = $('.frame');
     $_c = $('._c');
+    $_cc = $('._cc');
     $close = $('.close');
     $main_c = $('.main_c');
     changeC = function(){
       if(_data !== ""){
         var $elm = $("."+_data + "_c");
+        $_cc.addClass(DOWNC);
         $elm.removeClass(DOWNC);
       }
     };
