@@ -14,7 +14,8 @@ Requires: jquery
     _height = window.innerHeight;
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
-    _url = window.location.pathname;
+    //_url = window.location.pathname;
+    _url = "Summary";
     _text = "";
     _data = "";
     $logo = $('.logo');
