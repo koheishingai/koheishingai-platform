@@ -701,6 +701,10 @@ background-position-x: 10px;
   background: #fafafa;
 }
 
+.sel{
+  color: #757575 !important;
+}
+
 @media (max-width: 580px){
   body{
     width: 100%;
