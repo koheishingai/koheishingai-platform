@@ -693,6 +693,10 @@ background-position-y: 10px;
 background-position-x: 10px;
 }
 
+.sm li a{
+  color: #eee !important;
+}
+
 @media (max-width: 580px){
   body{
     width: 100%;
