@@ -693,6 +693,10 @@ background-position-y: 10px;
 background-position-x: 10px;
 }
 
+.sel .icon.r{
+background-image: url(../images/>>.svg) !important;
+}
+
 .in{
   color: #eee !important;
 }
