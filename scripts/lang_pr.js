@@ -60,10 +60,14 @@ Requires: jquery
     $head.append('<link class="langstyle" rel="stylesheet" href="../styles/main_'+_lang+'.css?'+getTime()+'" type="text/css">');
     if(_lang === 'ja'){
       $html.attr("lang", "ja");
+      $on.removeAttr("checked");
+      $off.attr("checked", "");
       setContent();
       $search_b.attr("placeholder", _title+"を検索");
     }else{
       $html.attr("lang", "en");
+      $on.attr("checked", "");
+      $off.removeAttr("checked");
       setContent();
       $search_b.attr("placeholder", "Search in "+_title);
     }
@@ -72,6 +76,22 @@ Requires: jquery
     getJson();
   };
   init();
+  $on.change(function(){// To English
+    _lang = "en";
+    $('.langstyle').remove();
+    $head.append('<link class="langstyle" rel="stylesheet" href="styles/main_en.css?'+getTime()+'" type="text/css">');
+    $html.attr("lang", "en");
+    setContent();
+    viewNotify(_lang);
+  });
+  $off.change(function(){// To Japanese
+    _lang = "ja";
+    $('.langstyle').remove();
+    $head.append('<link class="langstyle" rel="stylesheet" href="styles/main_ja.css?'+getTime()+'" type="text/css">');
+    $html.attr("lang", "en");
+    setContent();
+    viewNotify(_lang);
+  });
   socket_r.on('readLang', function(val){
     _json = JSON.parse(val);
     setLang();

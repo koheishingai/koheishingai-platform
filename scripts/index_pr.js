@@ -42,7 +42,7 @@ Requires: jquery
       }
     };
     addHash = function(){
-      window.location.hash = _data;
+      window.location.hash = "/"+_data;
       changeC();
     };
     setCard = function(){

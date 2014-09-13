@@ -326,6 +326,7 @@ transition: transform 0.2s ease-in-out, opacity 0.2s ease-in;
 -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in;
 transform: translateY(200%);
 -webkit-transform: translateY(200%);
+z-index: 3;
 }
 .wnotify .on{
 transform: translateY(0%);
@@ -606,6 +607,69 @@ right: 0px;
 width: 42px;
 height: 42px;
 cursor: pointer;
+z-index:2;
+}
+
+._c h1.header{
+position: absolute;
+font-family: inherit;
+font-weight: 300;
+font-size: 41px;
+color: #dbdbdb;
+text-indent: 7px;
+line-height: 49px;
+cursor: default;
+}
+
+._c .wrap{
+width: 100%;
+height: 100%;
+padding: 55px 20px 20px 20px;
+position: absolute;
+z-index: 1;
+}
+
+._c .article{
+width: 100%;
+height: 100%;
+}
+
+.rm {
+margin: 0;
+position: fixed;
+z-index: 1;
+background-color: #FFFFFF;
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.44) , inset 0px 0px 43px rgba(0, 0, 0, 0.03);
+padding: 0;
+bottom: 119px;
+right: 5px;
+border-radius: 0px;
+height: 158px;
+width: 46px;
+}
+
+.rh {
+margin: 0px;
+padding: 0px;
+height: 15px;
+text-align: center;
+FIXME: disabling dock movement for now, cursor would be misleading:;
+-moz-user-select: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+user-select: none;
+width: 100%;
+position: relative;
+left: 0px;
+border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+line-height: 4px;
+font-weight: 900;
+font-size: 20px;
+letter-spacing: 2px;
+text-align: center;
+color: #696969;
+font-family: arial;
+cursor: default;
 }
 
 @media (max-width: 580px){
@@ -653,6 +717,10 @@ cursor: pointer;
   ._c {
     display: none;
   }
+  .rm{
+    display: none;
+  }
+
 }
 
 @media (max-height: 420px){
