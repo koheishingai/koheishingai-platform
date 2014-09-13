@@ -18,10 +18,10 @@ Requires: jquery
   viewNotify = function(lang){
     if(lang === "ja"){
       var alert   = "日本語に設定しました"
-      var alert_s = "Kohei Shingaiを検索"
+      var alert_s = "Summaryを検索"
     }else{
       var alert = "Set to English"
-      var alert_s = "Search in Kohei Shingai"
+      var alert_s = "Search in Summary"
     }
     $notify.text(alert).addClass("on");
     $search_b.attr("placeholder", alert_s);
