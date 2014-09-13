@@ -14,7 +14,8 @@ Requires: jquery
     _height = window.innerHeight;
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
-    _url = window.location.pathname;
+    //_url = window.location.pathname;
+    _url = "Summary";
     _text = "";
     _data = "";
     $logo = $('.logo');
@@ -206,6 +207,8 @@ Requires: jquery
       upCard();
       addHash();
       $sm.show();
+      $sidemenu.removeClass("fa");
+      $(this).addClass("fa");
     });
     $rightmenu.click(function(){
       _text = $(this).text();
@@ -223,6 +226,7 @@ Requires: jquery
       openMenu();
       addHash();
       $sm.hide();
+      $sidemenu.removeClass("fa");
     });
     $search_b.keyup(function(){
       var len = $search_b.val().length;
@@ -235,6 +239,7 @@ Requires: jquery
         openMenu();
         addHash();
         $sm.hide();
+        $sidemenu.removeClass("fa");
       }
     });
 })();

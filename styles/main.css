@@ -697,6 +697,10 @@ background-position-x: 10px;
   color: #eee !important;
 }
 
+.fa{
+  background: #fafafa;
+}
+
 @media (max-width: 580px){
   body{
     width: 100%;
