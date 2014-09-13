@@ -63,7 +63,8 @@ Requires: jquery
       }, 1200);
     };
     alertS = function(){
-      if(_device === "iphone" && _browser === "safari"){
+      //if(_device === "iphone" && _browser === "safari"){
+      if(_device === "iphone"){
         var height = (0 - _height) + 80;
         setTimeout(function(){
           $body.css("background", "#eee");
