@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var DOWNC, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
+    var DOWNC, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -38,6 +38,7 @@ Requires: jquery
     $_cc = $('._cc');
     $close = $('.close');
     $main_c = $('.main_c');
+    $sm = $('.sm');
     changeC = function(){
       if(_data !== ""){
         var $elm = $("."+_data + "_c");
@@ -103,6 +104,7 @@ Requires: jquery
         $title_l.text(title_l).removeClass("step4").addClass("step1");
         $_c.addClass(DOWNC);
         $main_c.removeClass(DOWNC);
+        $sm.hide();
       }else if(_cnt_l === 1){
         $title_l.removeClass("step1").addClass("step2");        
       }else if(_cnt_l === 2){
@@ -195,6 +197,7 @@ Requires: jquery
       notify();
       upCard();
       addHash();
+      $sm.show();
     });
     $sidemenu.click(function(){
       _text = $(this).text().split(" ").join("");
@@ -203,6 +206,7 @@ Requires: jquery
       notify();
       upCard();
       addHash();
+      $sm.show();
     });
     $rightmenu.click(function(){
       _text = $(this).text();
@@ -219,6 +223,7 @@ Requires: jquery
       $main_c.removeClass(DOWNC);
       openMenu();
       addHash();
+      $sm.hide();
     });
     $search_b.keyup(function(){
       var len = $search_b.val().length;
@@ -226,9 +231,11 @@ Requires: jquery
         _data = "search";
         closeMenu();
         addHash();
+        $sm.show();
       }else{
         openMenu();
         addHash();
+        $sm.hide();
       }
     });
 })();
