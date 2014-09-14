@@ -5,8 +5,8 @@ Requires: jquery
 (function() {
     "use strict";
     var DOWNC, _hs, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, $ph, $phi, $ops, $phone, $on, $off, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC, changeL, generateID, hashA, getLang;
-    //var socket_r = io.connect(":8080");
-    var socket_r = io.connect("http://www.sum-mary.com:8080");
+    var socket_r = io.connect(":8080");
+    //var socket_r = io.connect("http://www.sum-mary.com:8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
     DOWNC = "down_c";
