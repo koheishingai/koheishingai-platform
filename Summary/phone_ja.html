@@ -3,19 +3,18 @@
 padding-left: 0;
 margin: 0;
 }
-.article h2 {
+.article h2{
 color: #00bcd4;
-font-size: 30px;
-font-weight: 400;
+font-size: 23px;
+font-weight: 300;
 line-height: 40px;
-margin-bottom: 9px;
-margin-top: 9px;
+margin-bottom: 6px;
+margin-top: 12px;
 }
-
 
 .article li {
 color: #999;
-font-size: 18px;
+font-size: 16px;
 font-weight: 300;
 line-height: 26px;
 }
@@ -92,8 +91,8 @@ width: 346px;
 height: 187px;
 margin: -194px auto;
 overflow: hidden;
-transition: margin-top 0.28s ease-in-out;
--webkit-transition: margin-top 0.28s ease-in-out;
+transition: margin-top 0.28s ease-in-out, transform 0.28s ease-in-out;
+-webkit-transition: margin-top 0.28s ease-in-out, transform 0.28s ease-in-out;
 }
 .article .right .m .wi {
 display: block;
@@ -122,7 +121,6 @@ overflow: visible;
 }
 
 .article .right.s1 .m .ph {
-/*.article .right .m .ph {*/
   bottom: 0%;
 }
 
@@ -142,6 +140,8 @@ overflow: visible;
 
 .article .right.s4 .m .wr {
   margin-top: -194px;
+  transform:  rotateX(40deg);
+  -webkit-transform: rotateX(40deg);
 }
 
 .article .right .m .s {
@@ -164,7 +164,6 @@ transform: translateY(0);
   opacity: 0;
 }
 </style>
-<div class="article">
 <h2>あなたのiPhoneがコントローラーになります</h2>
 <div class="left">
 <ol>  
@@ -196,7 +195,6 @@ transform: translateY(0);
 </div>
 </div>
 </div>
-</div>
 <script>
 (function() {
   "use strict"
@@ -205,18 +203,18 @@ transform: translateY(0);
   //_url = window.location.pathname;
   _url = "Summary";
   _user = localStorage.getItem("user");
-  _width = $(".article").innerWidth;
-  _height = $(".article").innerHeight;
+  _width = $(".article").width();
+  _height = $(".article").height();
   $u = $('.article .u');
   $c = $('.article .c');
   $m = $('.article .m');
-  $left = $('.left');
-  $right = $('.right');
+  $left = $('.article .left');
+  $right = $('.article .right');
   $obj = $('.obj');
   setS = function(){
-    var h = _height - 58;
-    $left.innerHeight(h);
-    $right.innerHeight(h);
+    var h = _height - 85;
+    $left.height(h);
+    $right.height(h);
   }; 
   init = function(){
     $u.text(URL+_url);
@@ -224,7 +222,6 @@ transform: translateY(0);
     setS();
   };
   init();
-  //clearInterval(_timer_l);
   $m.click(function(){
     var cnt = 0;
     $obj.removeClass("no");
@@ -249,8 +246,8 @@ transform: translateY(0);
       clearTimeout(_timer)
     }
     _timer = setTimeout(function() {
-      _width = $(".article").innerWidth;
-      _height = $(".article").innerHeight;
+      _width = $(".article").width();
+      _height = $(".article").height();
       setS();
     }, 100)
   });
