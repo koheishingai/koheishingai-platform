@@ -57,7 +57,9 @@ Requires: jquery
       }
     };
     addHash = function(){
+      var lang = localStorage.getItem("lang");
       window.location.hash = "/"+_data;
+      socket_r.emit("cl", _url, _data, lang);
       changeC();
     };
     setCard = function(){

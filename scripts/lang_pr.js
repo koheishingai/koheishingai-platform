@@ -59,6 +59,7 @@ Requires: jquery
   };
   setLang = function(){
     _lang = getLang();
+    localStorage.setItem("lang", _lang);
     $head.append('<link class="langstyle" rel="stylesheet" href="../styles/main_'+_lang+'.css?'+getTime()+'" type="text/css">');
     if(_lang === 'ja'){
       $html.attr("lang", "ja");
