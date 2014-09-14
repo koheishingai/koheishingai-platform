@@ -37,19 +37,19 @@ $(function () {
     }), $(".w3").click(function () {
         location.href = "/works/3"
     }), $(".c1").click(function () {
-        location.href = "/old/loading_like_ios"
+        location.href = "/home/loading_like_ios"
     }), $(".c2").click(function () {
-        location.href = "/old/simple_uploader"
+        location.href = "/home/simple_uploader"
     }), $(".c3").click(function () {
-        location.href = "/old/sign_up_login_box"
+        location.href = "/home/sign_up_login_box"
     }), $(".c4").click(function () {
-        location.href = "/old/html_compressor"
+        location.href = "/home/html_compressor"
     }), $(".c5").click(function () {
-        location.href = "/old/my_portfolio"
+        location.href = "/home/my_portfolio"
     }), $(".r1").click(function () {
-        location.href = "/old/mr_doob"
+        location.href = "/home/mr_doob"
     }), $(".rr2").click(function () {
-        location.href = "/old/pure_css_components"
+        location.href = "/home/pure_css_components"
     }), $(".a").click(function () {
         location.href = "/article"
     }), $(".c").click(function () {

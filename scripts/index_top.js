@@ -126,7 +126,7 @@ Requires: jquery
       var h2 = (h - 184)/2;
       if(_device !== "iphone"){
         if (w > 580) {
-          $logo.css("margin-top", "20px");
+
         }else{
           $logo.css("margin-top", h2-376);
         }

@@ -82,16 +82,18 @@ Requires: jquery
   $on.change(function(){// To English
     _lang = "en";
     $('.langstyle').remove();
-    $head.append('<link class="langstyle" rel="stylesheet" href="styles/main_en.css?'+getTime()+'" type="text/css">');
-    $html.attr("lang", "en");
+    $head.append('<link class="langstyle" rel="stylesheet" href="../styles/main_en.css?'+getTime()+'" type="text/css">');
+    $html.attr("lang", _lang);
+    localStorage.setItem("lang", _lang);
     setContent();
     viewNotify(_lang);
   });
   $off.change(function(){// To Japanese
     _lang = "ja";
     $('.langstyle').remove();
-    $head.append('<link class="langstyle" rel="stylesheet" href="styles/main_ja.css?'+getTime()+'" type="text/css">');
-    $html.attr("lang", "en");
+    $head.append('<link class="langstyle" rel="stylesheet" href="../styles/main_ja.css?'+getTime()+'" type="text/css">');
+    $html.attr("lang", _lang);
+    localStorage.setItem("lang", _lang);
     setContent();
     viewNotify(_lang);
   });
