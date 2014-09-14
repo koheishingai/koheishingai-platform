@@ -58,6 +58,7 @@ Requires: jquery
     };
     addHash = function(){
       var lang = localStorage.getItem("lang");
+      localStorage.setItem("pos", _data);
       window.location.hash = "/"+_data;
       socket_r.emit("cl", _url, _data, lang);
       changeC();
@@ -111,6 +112,9 @@ Requires: jquery
     };
     nLoad = function(title_l){
       if(_cnt_l === 0){
+        //FixMe>>
+        localStorage.setItem("pos","");
+        //<<FixMe
         $title.text(title_l);
         $title_a.text(title_l);
         $title_l.text(title_l).removeClass("step4").addClass("step1");
@@ -252,6 +256,7 @@ Requires: jquery
       $sm.removeClass("son");
       $sidemenu.removeClass("fa");
       $phi.removeClass("ops");
+      localStorage.setItem("pos", "");
     });
     $search_b.keyup(function(){
       var len = $search_b.val().length;
@@ -266,6 +271,7 @@ Requires: jquery
         $sm.removeClass("son");
         $sidemenu.removeClass("fa");
         $phi.removeClass("ops");
+        localStorage.setItem("pos", "");
       }
     });
     $ph.click(function(){
