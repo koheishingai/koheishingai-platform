@@ -1,0 +1,1 @@
+$(function(){wb='',sb='';var userAgent=window.navigator.userAgent.toLowerCase(),appVersion=window.navigator.appVersion.toLowerCase();if(navigator.userAgent.indexOf('iPhone')!=-1&&navigator.userAgent.indexOf('iPad')==-1){sb='ip'}else{sb='ot'}if(userAgent.indexOf('safari')!=-1){wb='sa'}else if(userAgent.indexOf('crios')!=-1){wb='ch'}else{wb='ot'}});

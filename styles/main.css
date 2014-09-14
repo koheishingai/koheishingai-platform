@@ -781,12 +781,17 @@ background: #fafafa;
   .rm{
     display: none;
   }
-
+  .sm{
+    display: none;
+  }
 }
 
 @media (max-height: 420px){
 
   .wcard{
+    display: none;
+  }
+  .sm{
     display: none;
   }
 

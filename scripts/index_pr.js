@@ -4,8 +4,9 @@ Requires: jquery
 */
 (function() {
     "use strict"
-    var DOWNC, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, $ph, $phi, $ops, $phone, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC;
-    var socket_r = io.connect(":8080");
+    var DOWNC, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, $ph, $phi, $ops, $phone, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC, generateID;
+    //var socket_r = io.connect(":8080");
+    var socket_r = io.connect("http://www.sum-mary.com:8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
     DOWNC = "down_c";
@@ -14,8 +15,8 @@ Requires: jquery
     _height = window.innerHeight;
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
-    _url = window.location.pathname;
-    //_url = "Summary";
+    //_url = window.location.pathname;
+    _url = "Summary";
     _text = "";
     _data = "";
     $logo = $('.logo');
@@ -45,6 +46,9 @@ Requires: jquery
     $phi = $('.rm .i');
     $ops = $('.ops');
     $phone = $(".header[data='phone']");
+    generateID = function(){
+      socket_r.emit("gid");
+    };
     changeC = function(){
       if(_data !== ""){
         var $elm = $("."+_data + "_c");
@@ -111,6 +115,7 @@ Requires: jquery
         $_c.addClass(DOWNC);
         $main_c.removeClass(DOWNC);
         $sm.removeClass("son");
+        generateID();
       }else if(_cnt_l === 1){
         $title_l.removeClass("step1").addClass("step2");        
       }else if(_cnt_l === 2){
@@ -273,5 +278,8 @@ Requires: jquery
       $sidemenu.removeClass("fa");
       $in.removeClass("sel");
       $phi.addClass("ops");
+    });
+    socket_r.on("gid", function(id){
+      localStorage.setItem("user", id);
     });
 })();

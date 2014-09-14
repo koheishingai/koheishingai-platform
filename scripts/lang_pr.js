@@ -5,14 +5,16 @@ Requires: jquery
 (function(){
   "use strict"
   var init, getLang, setLang, getTime, getJson, setContent, viewNotify, _lang, _json, _url, _title, $on, $off, $html, $head, $notify, $search_b;
-  var socket_r = io.connect(":8080");
+  //var socket_r = io.connect(":8080");
+  var socket_r = io.connect("http://www.sum-mary.com:8080");
   $on = $("#switch-on");
   $off = $("#switch-off");
   $html = $("html");
   $head = $('head');
   $notify = $('.notify');
   $search_b = $('.search_b');
-  _url = window.location.pathname;
+  //_url = window.location.pathname;
+  _url = "Summary";
   _title = _url.split('/').join('');
   _title = _title.split('_').join(' ');
   viewNotify = function(lang){
