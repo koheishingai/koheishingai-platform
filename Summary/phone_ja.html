@@ -205,8 +205,8 @@ transform: translateY(0);
   //_url = window.location.pathname;
   _url = "Summary";
   _user = localStorage.getItem("user");
-  _width = window.innerWidth;
-  _height = window.innerHeight;
+  _width = $(".article").innerWidth;
+  _height = $(".article").innerHeight;
   $u = $('.article .u');
   $c = $('.article .c');
   $m = $('.article .m');
@@ -245,14 +245,12 @@ transform: translateY(0);
     }, 600);
   });
   $(window).resize(function() {
-    var width = window.innerWidth;
-    var height = window.innerHeight;
     if (_timer !== false) {
       clearTimeout(_timer)
     }
     _timer = setTimeout(function() {
-      _width = window.innerWidth;
-      _height = window.innerHeight;
+      _width = $(".article").innerWidth;
+      _height = $(".article").innerHeight;
       setS();
     }, 100)
   });

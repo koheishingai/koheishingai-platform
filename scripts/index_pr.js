@@ -284,4 +284,8 @@ Requires: jquery
     socket_r.on("gid", function(id){
       localStorage.setItem("user", id);
     });
+    socket_r.on("cl", function(data, pos){
+      var $art = $('.'+pos+'_c .article');
+      $art.html(data);
+    });
 })();
