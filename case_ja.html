@@ -1,4 +1,22 @@
 <style>
+.rm .u, .rm .u:hover{
+opacity: 0.2;
+cursor: default;
+}
+.rm .d, .rm .d:hover{
+opacity: 0.2;
+cursor: default;
+}
+/* .rm {
+height: 155px;
+}*/  
+
+.cnt {
+width: 100%;
+padding: 20px;
+overflow-y: auto;
+}
+
 .article ol{
 padding-left: 0;
 margin: 0;
@@ -178,47 +196,17 @@ padding: 10px;
 margin-bottom: 13px;
 }
 </style>
-<h2>You can change your iPhone into remote controller.</h2>
-<div class="left">
-<ol>
-<section>
-<li><span class="o">1. </span> Access to <span class="u"></span> from your iPhone.</li>
-<li>
-<div class="gif"></div>
-</li>
-</section>
-<section>
-<li><span class="o">2. </span> Input <span class="c"></span>.</li>
-<li>
-<div class="gif"></div>
-</li>
-</section>
-<section>
-<li><span class="o">3.</span> Click "Remote Start" button.</li>
-<li>
-<div class="gif"></div>
-</li>
-</section>
-</ol>
-</div>
-<div class="right">
-<div class="m">
-<div class="swr obj">
-<div class="s">
-</div>
-</div>
-<div class="ph obj">
-<div class="wr">
-<div class="wi"></div>
-</div>
-</div>
-</div>
-</div>
+<h2>用途にあわせて自由にカスタマイズ</h2>
+<div class="cnt">
+<a href="/Kohei_Shingai" target="_blank"><div class="menu_c" data="introduction"><p class="text">新谷 光平</p><p class="b">Web開発者 - ポートフォリオ</p></div></a>
+<a href="/Kohei_Shingai" target="_blank"><div class="menu_c" data="introduction"><p class="text">Nitrous.io</p><p class="b">Webサービス - サポート</p></div></a>
+<a href="/Kohei_Shingai" target="_blank"><div class="menu_c" data="introduction"><p class="text">TheStrawberry<br>1201</p><p class="b">YouTuber - プロモーション</p></div></a>
+<a href="/Kohei_Shingai" target="_blank"><div class="menu_c" data="introduction"><p class="text">HAY</p><p class="b">家具メーカー - ショップ</p></div></a>
 </div>
 <script>
 (function() {
   "use strict"
-  var URL, init, setS, anim, _timer, _width, $u, $c, $m, $left, $right, $obj, _height, _url, _user;
+  var URL, init, setS, anim, _timer, _width, $u, $c, $m, $cnt, $obj, _height, _url, _user;
   URL = "http://www.sum-mary.com/"
   //_url = window.location.pathname;
   _url = "Summary";
@@ -228,14 +216,12 @@ margin-bottom: 13px;
   $u = $('.article .u');
   $c = $('.article .c');
   $m = $('.article .m');
-  $left = $('.article .left');
-  $right = $('.article .right');
+  $cnt = $('.article .cnt');
   $obj = $('.obj');
   setS = function(){
     var h = _height - 85;
-    $left.height(h);
-    $right.height(h);
-  }; 
+    $cnt.height(h);
+  };
   init = function(){
     $u.text(URL+_url);
     $c.text(_user);
@@ -245,19 +231,19 @@ margin-bottom: 13px;
   $m.click(function(){
     var cnt = 0;
     $obj.removeClass("no");
-    $right.addClass("s1");
+    //$right.addClass("s1");
     anim = setInterval(function(){
       if(cnt === 0){
-        $right.addClass("s2");
+        //$right.addClass("s2");
       }else if(cnt === 1){
-        $right.addClass("s3");
+        //$right.addClass("s3");
       }else if(cnt === 2){
         $right.addClass("s4");
       }else if(cnt === 3){
       
       }else if(cnt === 4){
         $obj.addClass("no");
-        $right.removeClass("s1").removeClass("s2").removeClass("s3").removeClass("s4");
+        //$right.removeClass("s1").removeClass("s2").removeClass("s3").removeClass("s4");
         clearInterval(anim);
       }
       cnt++;

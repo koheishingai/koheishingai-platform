@@ -4,9 +4,8 @@ Requires: jquery
 */
 (function() {
     "use strict";
-    var DOWNC, _hs, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, $ph, $phi, $ops, $phone, $on, $off, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC, changeL, generateID, hashA, getLang;
+    var DOWNC, _title, _hs, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, $ph, $phi, $ops, $phone, $on, $off, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC, changeL, generateID, hashA, getLang, setTitle;
     var socket_r = io.connect(":8080");
-    //var socket_r = io.connect("http://www.sum-mary.com:8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
     DOWNC = "down_c";
@@ -19,6 +18,7 @@ Requires: jquery
     _text = "";
     _data = "";
     _hs = "";
+    _title = "";
     $on = $("#switch-on");
     $off = $("#switch-off");
     $logo = $('.logo');
@@ -48,6 +48,19 @@ Requires: jquery
     $phi = $('.rm .i');
     $ops = $('.ops');
     $phone = $(".header[data='phone']");
+    setTitle = function(){
+      var t = window.location.host;
+      if(t === "www.koheishingai.com"){
+        _title = "Kohei Shingai";
+        localStorage.setItem("title", _title);
+      }else if(t === "www.sum-mary.com"){
+        _title = "Summary";
+        localStorage.setItem("title", _title);
+      }else if(t ===  "www.ka-mi.com"){
+        _title = "Kami";
+        localStorage.setItem("title", _title);
+      }
+    };
     getLang = function(){
       try{
         return (navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0,2);
@@ -142,9 +155,10 @@ Requires: jquery
     };
     nLoad = function(title_l){
       if(_cnt_l === 0){
-        //$title.text('Summary');
-        $title_a.text('Kami');
-        $title_l.text('Kami').removeClass("step4").addClass("step1");
+        setTitle();
+        $title.text(_title);
+        $title_a.text(_title);
+        $title_l.text(_title).removeClass("step4").addClass("step1");
         $_c.addClass(DOWNC);
         $main_c.removeClass(DOWNC);
         $sm.removeClass("son");
@@ -279,6 +293,7 @@ Requires: jquery
       });   
     });
     $close.click(function(){
+      $title.text(_title);
       $_c.addClass(DOWNC);
       $main_c.removeClass(DOWNC);
       openMenu();
@@ -286,15 +301,22 @@ Requires: jquery
       $sm.removeClass("son");
       $sidemenu.removeClass("fa");
       $phi.removeClass("ops");
+      $search_b.val("");
     });
     $search_b.keyup(function(){
       var len = $search_b.val().length;
       if(len > 0){
         _data = "search";
+        upCard();
         closeMenu();
         addHash();
         $sm.addClass("son");
+        $sidemenu.removeClass("fa");
+        $in.removeClass("sel");
       }else{
+        $title.text(_title);
+        $_c.addClass(DOWNC);
+        $main_c.removeClass(DOWNC);
         openMenu();
         addHash();
         $sm.removeClass("son");

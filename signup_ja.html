@@ -1,4 +1,17 @@
 <style>
+.rm .non, .rm .non:hover{
+opacity: 0.2;
+cursor: default;
+}
+
+.rm {
+height: 155px;
+}    
+
+.cnt2 {
+width: 100%;
+overflow-y: hidden;
+}
 .article ol{
 padding-left: 0;
 margin: 0;
@@ -177,87 +190,139 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 padding: 10px;
 margin-bottom: 13px;
 }
+
+.cnt2 .sl{
+width: 100%;
+height: 100%;
+}
+
+.cnt2 .sl.n01 {
+background: #fff;
+background-size: cover;
+background-position: 50% 50%;
+}
+
+.cnt2 .sl.n02{
+  background: red;
+}
+.cnt2 input{
+width: 100%;
+color: #757575;
+font-family: inherit;
+font-weight: 300;
+font-size: 18px;
+border: none;
+outline: none;
+margin-bottom: 1px;
+text-align: center;
+margin-top: 0px;
+height: 27px;
+}
+.cnt2 .ul{
+border-bottom: 1px solid #eee;
+}
+.cnt2 .sl .fm{
+width: 50%;
+margin: 0 auto;
+}
+.cnt2 .sl .fw {
+position: absolute;
+top: 50%;
+width: 100%;
+margin-top: -56px;
+}
+.cnt2 h1 {
+color: #858585;
+text-align: center;
+position: absolute;
+font-size: 15px;
+bottom: 0px;
+width: 100%;
+font-weight: 300;
+}
 </style>
-<h2>You can change your iPhone into remote controller.</h2>
-<div class="left">
-<ol>
-<section>
-<li><span class="o">1. </span> Access to <span class="u"></span> from your iPhone.</li>
-<li>
-<div class="gif"></div>
-</li>
+<h2>更新情報を、お届けします</h2>
+<div class="cnt2">
+<section class="sl n1">
+<h1>ユーザーとして登録</h1>
+<div class="fw">
+<div class="fm">
+<input placeholder="メールアドレスを入力してください">
+<div class="ul"></div>
+</div>
+</div>
 </section>
-<section>
-<li><span class="o">2. </span> Input <span class="c"></span>.</li>
-<li>
-<div class="gif"></div>
-</li>
+<section class="sl n2">
+<h1>デベロッパーとして登録</h1>
+<div class="fw">
+<div class="fm">
+<input placeholder="メールアドレスを入力してください">
+<div class="ul"></div>
+</div>
+</div>
 </section>
-<section>
-<li><span class="o">3.</span> Click "Remote Start" button.</li>
-<li>
-<div class="gif"></div>
-</li>
-</section>
-</ol>
-</div>
-<div class="right">
-<div class="m">
-<div class="swr obj">
-<div class="s">
-</div>
-</div>
-<div class="ph obj">
-<div class="wr">
-<div class="wi"></div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <script>
 (function() {
   "use strict"
-  var URL, init, setS, anim, _timer, _width, $u, $c, $m, $left, $right, $obj, _height, _url, _user;
+  var URL, LIM, init, setS, setP, anim, $u, $c, $m, $cnt2, $obj, $up, $down, $sl, _timer, _width, _height, _url, _user, _page;
   URL = "http://www.sum-mary.com/"
+  LIM = 1;
   //_url = window.location.pathname;
   _url = "Summary";
   _user = localStorage.getItem("user");
   _width = $(".article").width();
   _height = $(".article").height();
+  _page = 0;
   $u = $('.article .u');
   $c = $('.article .c');
   $m = $('.article .m');
-  $left = $('.article .left');
-  $right = $('.article .right');
+  $up = $('.rm .i .u');
+  $down = $('.rm .i .d');
+  $cnt2 = $('.article .cnt2');
   $obj = $('.obj');
+  $sl = $('.cnt2 .sl');
+  setP = function(n){
+    if(n < 1){
+      $up.addClass("non");
+      $down.removeClass("non");
+      _page = 0;
+    }else if(n === LIM){
+      $up.removeClass("non");
+      $down.addClass("non");
+      _page = LIM;      
+    }
+    var i = _page + 1;
+    $sl.hide();
+    $('.cnt2 .n'+i).fadeIn();
+  };
   setS = function(){
-    var h = _height - 85;
-    $left.height(h);
-    $right.height(h);
-  }; 
+    var h = _height - 45;
+    $cnt2.height(h);
+  };
   init = function(){
     $u.text(URL+_url);
     $c.text(_user);
     setS();
+    setP(_page);
   };
   init();
   $m.click(function(){
     var cnt = 0;
     $obj.removeClass("no");
-    $right.addClass("s1");
+    //$right.addClass("s1");
     anim = setInterval(function(){
       if(cnt === 0){
-        $right.addClass("s2");
+        //$right.addClass("s2");
       }else if(cnt === 1){
-        $right.addClass("s3");
+        //$right.addClass("s3");
       }else if(cnt === 2){
         $right.addClass("s4");
       }else if(cnt === 3){
       
       }else if(cnt === 4){
         $obj.addClass("no");
-        $right.removeClass("s1").removeClass("s2").removeClass("s3").removeClass("s4");
+        //$right.removeClass("s1").removeClass("s2").removeClass("s3").removeClass("s4");
         clearInterval(anim);
       }
       cnt++;
@@ -272,6 +337,18 @@ margin-bottom: 13px;
       _height = $(".article").height();
       setS();
     }, 100)
+  });
+  $up.click(function(){
+    var n = _page - 1;
+    if(n > -1){
+      setP(n);
+    }
+  });
+  $down.click(function(){
+    var n = _page + 1;
+    if(n < LIM + 1){
+      setP(n);
+    }        
   });
 })();
 </script>
