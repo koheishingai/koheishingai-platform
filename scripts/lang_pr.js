@@ -5,25 +5,24 @@ Requires: jquery
 (function(){
   "use strict"
   var init, getLang, setLang, getTime, getJson, setContent, viewNotify, _lang, _json, _url, _title, $on, $off, $html, $head, $notify, $search_b;
-  //var socket_r = io.connect(":8080");
-  var socket_r = io.connect("http://www.sum-mary.com:8080");
+  var socket_r = io.connect(":8080");
+  //var socket_r = io.connect("http://www.sum-mary.com:8080");
   $on = $("#switch-on");
   $off = $("#switch-off");
   $html = $("html");
   $head = $('head');
   $notify = $('.notify');
   $search_b = $('.search_b');
-  //_url = window.location.pathname;
-  _url = "Summary";
+  _url = window.location.pathname;
   _title = _url.split('/').join('');
   _title = _title.split('_').join(' ');
   viewNotify = function(lang){
     if(lang === "ja"){
       var alert   = "日本語に設定しました"
-      var alert_s = "Summaryを検索"
+      var alert_s = "Kamiを検索"
     }else{
       var alert = "Set to English"
-      var alert_s = "Search in Summary"
+      var alert_s = "Search in Kami"
     }
     $notify.text(alert).addClass("on");
     $search_b.attr("placeholder", alert_s);
@@ -66,7 +65,7 @@ Requires: jquery
       $on.removeAttr("checked");
       $off.attr("checked", "");
       setContent();
-      $search_b.attr("placeholder", _title+"を検索");
+      $search_b.attr("placeholder", "Kamiを検索");
     }else{
       $html.attr("lang", "en");
       $on.attr("checked", "");

@@ -15,8 +15,7 @@ Requires: jquery
     _height = window.innerHeight;
     _device = localStorage.getItem("device");
     _browser = localStorage.getItem("browser");
-    //_url = window.location.pathname;
-    _url = "Summary";
+    _url = window.location.pathname;
     _text = "";
     _data = "";
     _hs = "";
@@ -128,7 +127,8 @@ Requires: jquery
         if (w > 580) {
           $logo.css("margin-top", "20px");
         }else{
-          $logo.css("margin-top", h2-376);
+          $logo.css("margin-top", "20px");
+          //$logo.css("margin-top", h2-376);
         }
       }else{
         if (w > h) {
@@ -142,9 +142,9 @@ Requires: jquery
     };
     nLoad = function(title_l){
       if(_cnt_l === 0){
-        $title.text(title_l);
-        $title_a.text(title_l);
-        $title_l.text(title_l).removeClass("step4").addClass("step1");
+        //$title.text('Summary');
+        $title_a.text('Kami');
+        $title_l.text('Kami').removeClass("step4").addClass("step1");
         $_c.addClass(DOWNC);
         $main_c.removeClass(DOWNC);
         $sm.removeClass("son");
@@ -173,9 +173,9 @@ Requires: jquery
     };
     iLoad = function(title_l){
       if(_cnt_l === 0){
-        $title.text(title_l);
-        $title_a.text(title_l);
-        $title_l.html(title_l);
+        //$title.text('Summary');
+        $title_a.text('Kami');
+        $title_l.html('Kami');
       }else if(_cnt_l === 1){
                
       }else if(_cnt_l === 2){
@@ -236,17 +236,19 @@ Requires: jquery
       $menu_c.removeClass("left_m_c");    
     };
     $menu_c.click(function(){
-      _text = $(this).text();
-      _data = $(this).attr("data");
-      var $elm = $("."+_data + "_s");
-      closeMenu();
-      notify();
-      upCard();
-      addHash();
-      $sm.addClass("son");
-      $in.removeClass("sel");
-      $elm.addClass("sel");
-      $phi.removeClass("ops");
+      //if(_url !== "/"){
+        _text = $(this).text();
+        _data = $(this).attr("data");
+        var $elm = $("."+_data + "_s");
+        closeMenu();
+        notify();
+        upCard();
+        addHash();
+        $sm.addClass("son");
+        $in.removeClass("sel");
+        $elm.addClass("sel");
+        $phi.removeClass("ops");
+      //}
     });
     $sidemenu.click(function(){
       _text = $(this).text().split(" ").join("");
@@ -349,8 +351,10 @@ Requires: jquery
     });
     // << Init
     changeL = function(l, n){
-      if(n.length > 0){
-        socket_r.emit("cl", _url, n, l);
+      if(n !== null){
+        if(n.length > 0){
+          socket_r.emit("cl", _url, n, l);
+        }
       }
     };
     $on.change(function(){// To English

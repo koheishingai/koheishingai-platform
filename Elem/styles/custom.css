@@ -1,0 +1,31 @@
+body {
+background: #f9f9f9;
+color: #212121;
+}
+.logo {
+background: #00bcd4;
+margin: 0 !important;
+height: 91px;
+line-height: 97px;
+}
+.side-nav .logo a {
+color: #FFFFFF;
+font-weight: 400;
+}
+.search_w {
+background: #00bcd4;
+}
+.search_w input {
+width: 100%;
+color: #757575;
+font-family: inherit;
+font-weight: 300;
+font-size: 18px;
+border: none;
+outline: none;
+margin-bottom: 4px;
+text-align: center;
+margin-top: -3px;
+height: 27px;
+background: none;
+}

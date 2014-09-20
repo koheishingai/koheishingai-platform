@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kami</title>
+    <title>Summary</title>
     <link rel="stylesheet" href="styles/main.css?33" type="text/css">
     <link rel="stylesheet" href="styles/custom.css?0" type="text/css">
     <script type="text/javascript" async="" src=""></script>
@@ -33,10 +33,10 @@
                 </div>
                 <!-- Side Menu >> -->
                 <ul>
-                    <li>
-                        <a class="sidemenu" datas="design">
-                            <span data="design"></span>
-                            <i class="icon design"></i>
+                    <li style="display:none;">
+                        <a class="sidemenu" datas="about">
+                            <span data="about"></span>
+                            <i class="icon about"></i>
                         </a>
                     </li>
                     <li style="display:none;">
@@ -57,26 +57,26 @@
                             <i class="icon"></i>
                         </a>
                     </li>
-                    <div class='sm'>
+                    <div class='sm' style="display:none;">
                         <li>
-                            <a class="sidemenu in introduction_s" datas="introduction">
-                                <span data="introduction"></span>
+                            <a class="sidemenu in portfolio_s" datas="portfolio">
+                                <span data="portfolio"></span>
                                 <i class="icon r"></i>
                             </a>
                         </li>
                         <li>
-                            <a class="sidemenu in demo_s" datas="demo">
-                                <span data="demo"></span>
+                            <a class="sidemenu in article_s" datas="article">
+                                <span data="article"></span>
                                 <i class="icon r"></i>
                             </a>
                         </li>
                         <li>
-                            <a class="sidemenu in signup_s" datas="signup">
-                                <span data="signup"></span>
+                            <a class="sidemenu in career_s" datas="career">
+                                <span data="career"></span>
                                 <i class="icon r"></i>
                             </a>
                         </li>
-                        <li style="display:none;">
+                        <li>
                             <a class="sidemenu in prize_s" datas="prize">
                                 <span data="prize"></span>
                                 <i class="icon r"></i>
@@ -113,29 +113,16 @@
                         <div class="menu_c left_m_c" style="display:none;" data="article"></div>
                         <div class="menu_c left_m_c" style="display:none;" data="career"></div>
                         <div class="menu_c left_m_c" style="display:none;" data="prize"></div>
-                        <div class="menu_c left_m_c" data="introduction"></div>
-                        <div class="menu_c left_m_c" data="demo"></div>
-                        <div class="menu_c left_m_c" data="signup"></div>
+                        <a href="/Alex_Safayan" target="_blank"><div class="menu_c left_m_c" data="usr02"></div></a>
+                        <a href="/moonzean" target="_blank"><div class="menu_c left_m_c" data="usr03"></div></a>
+                        <a href="/Kohei_Shingai" target="_blank"><div class="menu_c left_m_c" data="usr01"></div></a>
+                        <a href="/Tim_Grochowski" target="_blank"><div class="menu_c left_m_c" data="usr04"></div></a>
                     </div>
                     <!-- << Content Menus -->
                     <!-- Content Box >> -->
-                    <div class="_c _cc introduction_c">
+                    <div class="_c _cc about_c">
                         <div class="close"></div>
-                        <h1 class="header" data="introduction"></h1>
-                        <div class="wrap">
-                            <div class="article"></div>
-                        </div>
-                    </div>
-                    <div class="_c _cc demo_c">
-                        <div class="close"></div>
-                        <h1 class="header" data="demo"></h1>
-                        <div class="wrap">
-                            <div class="article"></div>
-                        </div>
-                    </div>
-                    <div class="_c _cc signup_c">
-                        <div class="close"></div>
-                        <h1 class="header" data="signup"></h1>
+                        <h1 class="header" data="about"></h1>
                         <div class="wrap">
                             <div class="article"></div>
                         </div>
@@ -143,6 +130,20 @@
                     <div class="_c _cc design_c">
                         <div class="close"></div>
                         <h1 class="header" data="design"></h1>
+                        <div class="wrap">
+                            <div class="article"></div>
+                        </div>
+                    </div>
+                    <div class="_c _cc portfolio_c">
+                        <div class="close"></div>
+                        <h1 class="header" data="portfolio"></h1>
+                        <div class="wrap">
+                            <div class="article"></div>
+                        </div>
+                    </div>
+                    <div class="_c _cc article_c">
+                        <div class="close"></div>
+                        <h1 class="header" data="article"></h1>
                         <div class="wrap">
                             <div class="article"></div>
                         </div>
@@ -215,8 +216,9 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
     <script src="scripts/db.js" type="text/javascript" charset="utf-8"></script>
-    <script src="scripts/index_pr.js?29" type="text/javascript" charset="utf-8"></script>
-    <script src="scripts/lang_pr.js?13" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/index_pr.js?26" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/lang_pr.js?12" type="text/javascript" charset="utf-8"></script>
     <script src="scripts/view_pr.js?9" type="text/javascript" charset="utf-8"></script>
 </body>
+
 </html>

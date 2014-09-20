@@ -5,8 +5,8 @@ Requires: jquery
 (function() {
     "use strict";
     var DOWNC, _hs, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, $ph, $phi, $ops, $phone, $on, $off, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC, changeL, generateID, hashA, getLang;
-    //var socket_r = io.connect(":8080");
-    var socket_r = io.connect("http://www.sum-mary.com:8080");
+    var socket_r = io.connect(":8080");
+    //var socket_r = io.connect("http://www.sum-mary.com:8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
     DOWNC = "down_c";
@@ -144,18 +144,18 @@ Requires: jquery
       if(_cnt_l === 0){
         $title.text(title_l);
         $title_a.text(title_l);
-        //$title_l.text(title_l).removeClass("step4").addClass("step1");
+        $title_l.text(title_l).removeClass("step4").addClass("step1");
         $_c.addClass(DOWNC);
         $main_c.removeClass(DOWNC);
         $sm.removeClass("son");
         generateID();
         hashA();
-      /*}else if(_cnt_l === 1){
+      }else if(_cnt_l === 1){
         $title_l.removeClass("step1").addClass("step2");        
       }else if(_cnt_l === 2){
         $title_l.removeClass("step2").addClass("step3");
       }else if(_cnt_l === 3){
-        $title_l.removeClass("step3").addClass("step4");*/
+        $title_l.removeClass("step3").addClass("step4");
         if(_url !== "/"){
           $loading.fadeOut(function(){
             clearInterval(_timer_l);
@@ -196,9 +196,6 @@ Requires: jquery
     };
     init = function(){
       _cnt_l = 0;
-      var title_l = _url.split("/").join("");
-          title_l = title_l.split("_").join(" ");
-      $title_l.text(title_l);
       _timer_l = setInterval(function(){
         if(_url === "/"){
           var title_l = "Kohei Shingai";
