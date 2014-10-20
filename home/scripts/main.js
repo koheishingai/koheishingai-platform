@@ -20,7 +20,7 @@ $(function () {
         $remote.css({"opacity":"0"});
       }
     });
-    $('.btn-join').click(function () {
+    /*$('.btn-join').click(function () {
       if(wWidth < 701){
         if (clflg === 0) {
             $('#updates').css('width', '100%').css('height', 260).css('border-top', '1px solid rgb(228, 228, 228)').css('border-bottom', '1px solid rgb(228, 228, 228)').css('margin-bottom', -36).css('margin-top', -4);
@@ -50,11 +50,11 @@ $(function () {
           clflg=0;
         }
       }
-    });
+    });*/
 
     function init() {
         socket.emit('updates');
-        $('#updates').append("<div id='updates2'><ul id='upul'> <li class='upli'><a class='upa' href='/article/1'><span class='upleft'><span class='date'>9/DEC</span><span class='year'>2013</span></span><span class='upright' style='float: none;'><span class='uptitle'>I met Mr.doob</span><span class='tags'>#article, #WebGL</span></span><span class='clear'></span></a> </li> </ul></div>");
+        $('#updates').append("<div id='updates2'><ul id='upul'> <li class='upli'><a class='upa' href='http://www.sum-mary.com' target='_blank'><span class='upleft'><span class='date'>16/Aug</span><span class='year'>2014</span></span><span class='upright' style='float: none;'><span class='uptitle'>Summary</span><span class='tags'>#WebApp</span></span><span class='clear'></span></a> </li> </ul></div>");
         $('#phone').hide();
         if ($("window").innerWidth() > 700) {
             $('#tit1').fitText(1.7);

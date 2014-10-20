@@ -1,0 +1,264 @@
+<style>
+.rm .non, .rm .non:hover{
+opacity: 0.2;
+cursor: default;
+}
+
+.rm {
+height: 155px;
+/* Fix Me */
+height: 108px;
+opacity: 0.2;
+cursor: default;
+}    
+
+.cnt {
+width: 100%;
+padding: 20px 80px;
+overflow: hidden;
+}
+
+.cnt iframe{
+width: 100%;
+height: 100%;
+}
+
+.article ol{
+padding-left: 0;
+margin: 0;
+}
+.article h2{
+color: #858585;
+font-size: 23px;
+font-weight: 300;
+line-height: 40px;
+margin-bottom: 6px;
+margin-top: 12px;
+}
+
+.article li {
+color: #999;
+font-size: 14px;
+font-weight: 300;
+line-height: 26px;
+}
+
+.article li .o {
+font-weight: bold;
+margin-right: 6px;
+}
+
+.article .gif{
+width: 100%;
+height: 264px;
+padding: 20px;
+}
+
+.article .left {
+float: left;
+width: 50%;
+padding: 20px;
+overflow-y: auto;
+}
+
+.article .right{
+  float: right;
+  width: 50%;
+  padding: 20px;
+}
+
+.article .u, .article .c {
+color: #00bcd4;
+}
+
+.article .right .m{
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  background: none;
+}
+
+.article .right .m::before {
+background: #000 url("../images/play.svg") no-repeat center center;
+background-size: 71px 71px;
+background-position: 50% 50%;
+bottom: 0;
+content: '';
+left: 0;
+opacity: .5;
+position: absolute;
+right: 0;
+top: 0;
+-webkit-transition: opacity .2s cubic-bezier(.4,0,.2,1);
+-moz-transition: opacity .2s cubic-bezier(.4,0,.2,1);
+transition: opacity .2s cubic-bezier(.4,0,.2,1);
+}
+.article .right.s1 .m::before{
+  background: none;
+}
+.article .right .m .ph{
+  display: block;
+  background: url("../images/phone_sl.svg");
+  width: 100%;
+  height: 50%;
+  background-size: cover;
+  position: absolute;
+  bottom: -50%;
+  transition: bottom 0.28s ease-in-out, transform 0.28s ease-in-out ;
+  -webkit-transition: bottom 0.28s ease-in-out, -webkit-transform 0.28s ease-in-out;
+}
+
+.article .right .m .wr {
+background: none;
+width: 346px;
+height: 187px;
+margin: -194px auto;
+overflow: hidden;
+transition: margin-top 0.28s ease-in-out, transform 0.28s ease-in-out;
+-webkit-transition: margin-top 0.28s ease-in-out, transform 0.28s ease-in-out;
+}
+.article .right .m .wi {
+display: block;
+background: url("../images/wifi_sl.svg");
+width: 100%;
+height: 100%;
+background-size: cover;
+transform: translateY(100%);
+-webkit-transform: translateY(100%);
+transition: transform 0.28s ease-in-out;
+-webkit-transition: -webkit-transform 0.28s ease-in-out;
+}
+
+.article .right .m .swr {
+top: 0px;
+width: 364px;
+height: 364px;
+margin: -50px auto;
+overflow: visible;
+-transition: transform 0.28s ease-in-out;
+-webkit-transition: -webkit-transform 0.28s ease-in-out;
+}
+
+.article .right.s1 .m {
+  background: #fff;
+}
+
+.article .right.s1 .m .ph {
+  bottom: 0%;
+}
+
+.article .right.s2 .m .wi {
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+}
+
+.article .right.s3 .m .ph{
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+}
+
+.article .right.s3 .m .wr {
+  margin-top: -50%;
+}
+
+.article .right.s4 .m .wr {
+  margin-top: -194px;
+  transform:  rotateX(40deg);
+  -webkit-transform: rotateX(40deg);
+}
+
+.article .right .m .s {
+display: block;
+background: url("../images/pc_sl.svg");
+width: 100%;
+height: 100%;
+background-size: cover;
+transform: translateY(-100%);
+-webkit-transform: translateY(-100%);
+transition: transform 0.28s ease-in-out;
+-webkit-transition: -webkit-transform 0.28s ease-in-out;
+}
+.article .right.s4 .m .s {
+transform: translateY(0);
+-webkit-transform: translateY(0);
+}
+
+.article .no{
+  opacity: 0;
+}
+
+section {
+overflow: hidden;
+-moz-box-sizing: border-box;
+-ms-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+-ms-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+padding: 10px;
+margin-bottom: 13px;
+}
+</style>
+<h2>Making a bright future on my own</h2>
+<div class="cnt">
+<script>
+(function() {
+  "use strict"
+  var URL, init, setS, anim, _timer, _width, $u, $c, $m, $cnt, $obj, _height, _url, _user;
+  URL = "http://www.sum-mary.com/"
+  //_url = window.location.pathname;
+  _url = "Summary";
+  _user = localStorage.getItem("user");
+  _width = $(".article").width();
+  _height = $(".article").height();
+  $u = $('.article .u');
+  $c = $('.article .c');
+  $m = $('.article .m');
+  $cnt = $('.article .cnt');
+  $obj = $('.obj');
+  setS = function(){
+    var h = _height - 85;
+    $cnt.height(h);
+  };
+  init = function(){
+    $u.text(URL+_url);
+    $c.text(_user);
+    setS();
+  };
+  init();
+  $m.click(function(){
+    var cnt = 0;
+    $obj.removeClass("no");
+    //$right.addClass("s1");
+    anim = setInterval(function(){
+      if(cnt === 0){
+        //$right.addClass("s2");
+      }else if(cnt === 1){
+        //$right.addClass("s3");
+      }else if(cnt === 2){
+        $right.addClass("s4");
+      }else if(cnt === 3){
+      
+      }else if(cnt === 4){
+        $obj.addClass("no");
+        //$right.removeClass("s1").removeClass("s2").removeClass("s3").removeClass("s4");
+        clearInterval(anim);
+      }
+      cnt++;
+    }, 600);
+  });
+  $(window).resize(function() {
+    if (_timer !== false) {
+      clearTimeout(_timer)
+    }
+    _timer = setTimeout(function() {
+      _width = $(".article").width();
+      _height = $(".article").height();
+      setS();
+    }, 100)
+  });
+})();
+</script>

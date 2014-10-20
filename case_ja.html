@@ -1,20 +1,20 @@
 <style>
-.rm .u, .rm .u:hover{
+.rm .non, .rm .non:hover{
 opacity: 0.2;
 cursor: default;
 }
-.rm .d, .rm .d:hover{
-opacity: 0.2;
-cursor: default;
-}
-/* .rm {
+
+.rm {
 height: 155px;
-}*/  
+/* Fix Me */
+height: 108px;
+}    
+
 
 .cnt {
 width: 100%;
 padding: 20px;
-overflow-y: auto;
+overflow: hidden;
 }
 
 .article ol{
@@ -182,42 +182,79 @@ transform: translateY(0);
   opacity: 0;
 }
 
-section {
-overflow: hidden;
--moz-box-sizing: border-box;
--ms-box-sizing: border-box;
--webkit-box-sizing: border-box;
-box-sizing: border-box;
--moz-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
--ms-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
--webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-padding: 10px;
-margin-bottom: 13px;
+.article .desa{
+opacity: 0.3;
+cursor: default;
+}
+.article .desa:hover{
+border: 1px #eee solid;
+background: #fff;
+box-shadow: none;
+}
+
+
+.cnt .sl{
+width: 100%;
+height: 100%;
+}
+
+.cnt h1 {
+color: #858585;
+text-align: center;
+position: absolute;
+font-size: 15px;
+bottom: 0px;
+width: 100%;
+font-weight: 300;
 }
 </style>
 <h2>用途にあわせて自由にカスタマイズ</h2>
 <div class="cnt">
-<a href="/Kohei_Shingai" target="_blank"><div class="menu_c" data="introduction"><p class="text">新谷 光平</p><p class="b">Web開発者 - ポートフォリオ</p></div></a>
-<a href="/Kohei_Shingai" target="_blank"><div class="menu_c" data="introduction"><p class="text">Nitrous.io</p><p class="b">Webサービス - サポート</p></div></a>
-<a href="/Kohei_Shingai" target="_blank"><div class="menu_c" data="introduction"><p class="text">TheStrawberry<br>1201</p><p class="b">YouTuber - プロモーション</p></div></a>
-<a href="/Kohei_Shingai" target="_blank"><div class="menu_c" data="introduction"><p class="text">HAY</p><p class="b">家具メーカー - ショップ</p></div></a>
+<section class="sl n1">
+<h1>1. ユーザーの事例</h1>
+<a target="_blank"><div class="menu_c desa" data="introduction"><p class="text">新谷 光平</p><p class="b">Web開発者 - ポートフォリオ</p></div></a>
+<a target="_blank"><div class="menu_c desa" data="introduction"><p class="text">Nitrous.io</p><p class="b">Webサービス - サポート</p></div></a>
+<a style="display:none;" target="_blank"><div class="menu_c" data="introduction"><p class="text">TheStrawberry<br>1201</p><p class="b">YouTuber - プロモーション</p></div></a
+<a target="_blank"><div class="menu_c desa" data="introduction"><p class="text">HAY</p><p class="b">家具メーカー - ショップ</p></div></a>
+</section>
+<section class="sl n2">
+<h1>2. デベロッパーの事例</h1>
+</section>
 </div>
 <script>
 (function() {
   "use strict"
-  var URL, init, setS, anim, _timer, _width, $u, $c, $m, $cnt, $obj, _height, _url, _user;
+  var URL, LIM, init, setS, anim, setP, _timer, _width, $u, $c, $m, $down, $up, $cnt, $obj, $sl, _height, _url, _user, _page;
   URL = "http://www.sum-mary.com/"
+  LIM = 1;
   //_url = window.location.pathname;
   _url = "Summary";
   _user = localStorage.getItem("user");
   _width = $(".article").width();
   _height = $(".article").height();
+  _page = 0;
   $u = $('.article .u');
   $c = $('.article .c');
   $m = $('.article .m');
+  $up = $('.rm .i .u');
+  $down = $('.rm .i .d');
   $cnt = $('.article .cnt');
   $obj = $('.obj');
+  $sl = $('.cnt .sl');
+  setP = function(n){
+    if(n < 1){
+      $up.addClass("non");
+      $down.removeClass("non");
+      _page = 0;
+    }else if(n === LIM){
+      $up.removeClass("non");
+      $down.addClass("non");
+      _page = LIM;      
+    }
+    var i = _page + 1;
+    $sl.hide();
+    $('.cnt .n'+i).fadeIn();
+  };
   setS = function(){
     var h = _height - 85;
     $cnt.height(h);
@@ -226,6 +263,7 @@ margin-bottom: 13px;
     $u.text(URL+_url);
     $c.text(_user);
     setS();
+    setP(_page);
   };
   init();
   $m.click(function(){
@@ -258,6 +296,18 @@ margin-bottom: 13px;
       _height = $(".article").height();
       setS();
     }, 100)
+  });
+  $up.click(function(){
+    var n = _page - 1;
+    if(n > -1){
+      setP(n);
+    }
+  });
+  $down.click(function(){
+    var n = _page + 1;
+    if(n < LIM + 1){
+      setP(n);
+    }        
   });
 })();
 </script>

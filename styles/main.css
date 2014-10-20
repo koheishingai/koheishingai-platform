@@ -54,10 +54,9 @@ cursor: pointer;
 transition: background ease-in-out 0.28s;
 }
 .side-nav.white-nav li a {
-color: #757575;
+color: #7E7E7E;
 border-color: #eee;
 }
-
 .side-nav .icon {
 display: block;
 position: absolute;
@@ -111,6 +110,7 @@ right: 30px;
 -o-transition: right ease-in-out 0.28s;
 transition: right ease-in-out 0.28s;
 }
+
 html {
 height: 100%;
 }
@@ -205,7 +205,7 @@ text-align: center;
 }
 .side-nav .logo a {
 font-size: 28px;
-color: #616161;
+color: #757575;
 text-align: center;
 font-weight: 300;
 line-height: 50px;
@@ -419,7 +419,7 @@ top: 50%;
 width: 100%;
 position: absolute;
 text-align: center;
-color: #616161;
+color: #757575;
 font-size: 28px;
 font-weight: 300;
 font-family: 'Roboto', sans-serif;
@@ -474,7 +474,7 @@ margin-top: -7px;
 .search_w{
   width: 100%;
   padding: 62px 20px 0px;
-  background: #fff;
+  background: none;
 }
 
 .search_w input {
@@ -489,6 +489,9 @@ margin-bottom: 1px;
 text-align: center;
 margin-top: 0px;
 height: 27px;
+/* Remove Me */
+opacity: 0;
+cursor: default;
 }
 
 .search_w .underl {
@@ -546,25 +549,25 @@ cursor: pointer;
   background: #fafafa;
 }
 
-.menu_c .text{
-  display: block;
-  position: absolute;
-  font-size: 24px;
-  font-weight: 300;
-  color: #9e9e9e;
-  border-color: #eee;
-  text-align: center;
-  width: 100%;
-  top: 50%;
-  margin-bottom: 0px;
-  margin-top: -20px;
+.menu_c .text {
+display: block;
+position: absolute;
+font-size: 24px;
+font-weight: 300;
+color: #A1A1A1;
+border-color: #eee;
+text-align: center;
+width: 100%;
+top: 50%;
+margin-bottom: 0px;
+margin-top: -20px;
 }
-.menu_c .b{
+.menu_c .b {
 display: block;
 position: absolute;
 font-size: 12px;
 font-weight: 300;
-color: #DBDBDB;
+color: #CDCDCD;
 border-color: #eee;
 text-align: center;
 width: 100%;
@@ -591,7 +594,7 @@ background-position-x: 10px;
 }
 
 ._c {
-background: #fff;
+background: none;
 overflow: hidden;
 position: absolute;
 transition: transform 0.2s ease-in-out, opacity 0.06s linear;
@@ -633,6 +636,10 @@ line-height: 49px;
 cursor: default;
 }
 
+._c h1.header .b{
+display: none;
+}
+
 ._c .wrap{
 width: 100%;
 height: 100%;
@@ -661,6 +668,8 @@ width: 46px;
 transition: height 0.28s ease-in-out;
 -webkit-transition: height 0.28 ease-in-out;
 overflow: hidden;
+/* Rimove Me */
+height: 14px;
 }
 
 .rm .h {
@@ -734,6 +743,7 @@ background-image: url(../images/>>.svg) !important;
 
 .fa{
   background: #fafafa;
+  cursor: default !important;
 }
 
 .sel{
@@ -811,6 +821,10 @@ background: #fafafa;
   }
   .sm{
     display: none;
+  }
+  /* Remove Me */
+  .search_w .underl {
+    opacity: 0;
   }
 }
 
