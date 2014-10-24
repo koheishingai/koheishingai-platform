@@ -748,6 +748,8 @@ background-image: url(../images/>>.svg) !important;
 
 .sel{
   color: #757575 !important;
+  cursor: default !important;
+  background: #fafafa;
 }
 
 .rm .i:hover {
@@ -760,6 +762,10 @@ background: #fafafa;
   -webkit-transform : translateX(-200px);
   transition: transform 0.28s ease-in-out;
   -webkit-transition: -webkit-transform 0.28s ease-in-out;
+}
+
+.sm .b{
+  display:none;
 }
 
 .son{
