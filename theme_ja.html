@@ -225,7 +225,7 @@
         color: #009EDA;
     }
 </style>
-<h2 class="title">Simple Paper - 白い紙、それだけ</h2>
+<h2 class="title">あなたの色を選ぶ</h2>
 <div class="cnt">
     <section class="sl n1">
       <div class="cnt3">
@@ -242,7 +242,7 @@
         "use strict"
         var URL, LIM, init, setS, anim, setP, _timer, _width, $u, $c, $m, $down, $up, $cnt, $obj, $sl, $title, _height, _url, _user, _page;
         URL = "http://www.sum-mary.com/"
-        LIM = 1;
+        LIM = 0;
         //_url = window.location.pathname;
         _url = "Summary";
         _user = localStorage.getItem("user");
@@ -273,7 +273,7 @@
             $sl.hide();
             $title.fadeIn();
             if (_page === 0) {
-                $title.text("Simple Paper - 白い紙、それだけ");
+                $title.text("あなたの色を選ぶ");
             } else if (_page === 1) {
                 $title.text("Simple Paper - メイキング");
             }

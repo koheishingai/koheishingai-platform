@@ -765,7 +765,7 @@ background: #fafafa;
 }
 
 .sm .b{
-  display:none;
+  display:none !important;
 }
 
 .son{
@@ -775,6 +775,56 @@ background: #fafafa;
 
 .ops{
   opacity: 1 !important;
+}
+
+.foot-load{
+width: 100%;
+height: 4px;
+position: absolute;
+bottom: 0px;
+left: 0px;
+}
+
+.foot-load .left{
+  height:100%;
+  width: 50%;
+  float:left;
+  overflow: hidden;
+}
+
+ .foot-load .right{
+   height:100%;
+   width: 50%;
+  float:right;
+  overflow: hidden;
+ }
+
+
+.foot-load section div{
+    background: #757575;
+   width: 100%;
+  height: 100%;
+   -webkit-transition: -webkit-transform ease-in-out 0.28s;
+-o-transition: -o-transform ease-in-out 0.28s;
+transition: transform ease-in-out 0.28s;
+}
+
+.foot-load .left div {
+-webkit-transform: translateX(100%);
+-moz-transform: translateX(100%);
+transform: translateX(100%);
+}
+
+.foot-load .right div{
+  -webkit-transform: translateX(-100%);
+-moz-transform: translateX(-100%);
+transform: translateX(-100%);
+}
+
+.foot-load.on section div{
+  -webkit-transform: translateX(0%);
+-moz-transform: translateX(0%);
+transform: translateX(0%);
 }
 
 @media (max-width: 580px){
@@ -826,6 +876,9 @@ background: #fafafa;
     display: none;
   }
   .sm{
+    display: none;
+  }
+  .foot-load{
     display: none;
   }
   /* Remove Me */

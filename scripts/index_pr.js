@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict";
-    var DOWNC, _theme, _title, _hs, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, $ph, $phi, $ops, $phone, $on, $off, $head, $sidemenu_a, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC, changeL, generateID, hashA, getLang, setTitle, setT, getTime;
+    var DOWNC, _theme, _title, _hs, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, $ph, $phi, $ops, $phone, $on, $off, $head, $sidemenu_a, $foot_load, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC, changeL, generateID, hashA, getLang, setTitle, setT, getTime;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -51,6 +51,7 @@ Requires: jquery
     $ops = $('.ops');
     $head = $('head');
     $phone = $(".header[data='phone']");
+    $foot_load = $('.foot-load');
     getTime = function(){
       var t = new Date();
       var h = t.getHours();
@@ -178,6 +179,9 @@ Requires: jquery
         $title.text(_title);
         $title_a.text(_title);
         $title_l.text(_title).removeClass("step4").addClass("step1");
+        $foot_load.addClass("on");
+        setTimeout(function(){$foot_load.hide().removeClass("on")}, 280);
+        setTimeout(function(){$foot_load.show()},560);
         $_c.addClass(DOWNC);
         $main_c.removeClass(DOWNC);
         $sm.removeClass("son");
@@ -185,11 +189,20 @@ Requires: jquery
         hashA();
         setT();
       }else if(_cnt_l === 1){
-        $title_l.removeClass("step1").addClass("step2");        
+        $title_l.removeClass("step1").addClass("step2");
+        $foot_load.addClass("on");
+        setTimeout(function(){$foot_load.hide().removeClass("on")}, 280);
+        setTimeout(function(){$foot_load.show()},560);
       }else if(_cnt_l === 2){
         $title_l.removeClass("step2").addClass("step3");
+        $foot_load.addClass("on");
+        setTimeout(function(){$foot_load.hide().removeClass("on")}, 280);
+        setTimeout(function(){$foot_load.show()},560);
       }else if(_cnt_l === 3){
         $title_l.removeClass("step3").addClass("step4");
+        $foot_load.addClass("on");
+        setTimeout(function(){$foot_load.hide().removeClass("on")}, 280);
+        setTimeout(function(){$foot_load.show()},560);
         if(_url !== "/"){
           $loading.fadeOut(function(){
             clearInterval(_timer_l);
