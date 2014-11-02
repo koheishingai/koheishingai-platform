@@ -14,6 +14,7 @@ Requires: jquery
   $notify = $('.notify');
   $search_b = $('.search_b');
   _url = window.location.pathname;
+  console.log(_url);
   _title = _url.split('/').join('');
   _title = _title.split('_').join(' ');
   _logo = localStorage.getItem("title");

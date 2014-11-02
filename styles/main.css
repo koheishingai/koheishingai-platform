@@ -412,6 +412,10 @@ z-index: 9999;
 background: #fff;
 top: 0px;
 left: 0px;
+-moz-transition: background linear 0.1s;
+-webkit-transition: background linear 0.1s;
+-o-transition: background linear 0.1s;
+transition: background linear 0.1s;
 }
 
 .loading h1 {

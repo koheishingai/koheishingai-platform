@@ -5,15 +5,12 @@
         cursor: default;
     }
     .rm {
-        height: 155px;
-        /* Fix Me */
-        
-        height: 108px;
+        /* height: 155px;
+        height: 108px; */
     }
     .cnt3 {
         width: 100%;
         height: 100%;
-        padding: 20px 80px;
         overflow: hidden;
     }
     .cnt3 iframe {
@@ -30,7 +27,7 @@
         margin: 0;
     }
     .article h2 {
-        color: #ADADAD;
+        color: #A5A5A5;
         font-size: 23px;
         font-weight: 300;
         line-height: 40px;
@@ -224,11 +221,90 @@
     .menu_c.twitter .b {
         color: #009EDA;
     }
+    
+      .color{
+    cursor: default;
+    height: 100%;
+    width: 20%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+  }
+  .color.hide{
+    height: 0%;
+  }
+  .color:nth-child(1){
+    transition: background .1s ease-in-out, height .8s ease-in-out;
+  }
+  .color:nth-child(2){
+    transition: background .1s ease-in-out, height .8s ease-in-out .1s;
+  }
+  .color:nth-child(3){
+    transition: background .1s ease-in-out, height .8s ease-in-out .2s;
+  }
+  .color:nth-child(4){
+    transition: background .1s ease-in-out, height .8s ease-in-out .3s;
+  }
+  .color:nth-child(5){
+    transition: background .1s ease-in-out, height .8s ease-in-out .4s;
+  }
+  .color .hex{
+    position: absolute;
+    bottom: 21px;
+    text-align: center;
+    width: 100%;
+    opacity: 1;
+    transition: opacity .3 ease-in-out;
+  }
+  .color .hex input{
+    font-size: 33px;
+    width: 170px;
+  }
+  .color input{
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    line-height: normal;
+    background: none;
+    border: none;
+    opacity: 0.2;
+    padding: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all .2 ease-in-out;
+    cursor: pointer;
+    outline: none;
+  }
 </style>
-<h2 class="title">あなたの色を選ぶ</h2>
+<h2 class="title">MY COLOR</h2>
 <div class="cnt">
     <section class="sl n1">
       <div class="cnt3">
+      <div class="color hide" style="background: rgb(255,255,255);">
+    <div class="hex">
+      <input value maxlength="7">
+    </div>
+  </div>
+  <div class="color hide" style="background: rgb(238,238,238);">
+    <div class="hex">
+      <input value maxlength="7">
+    </div>
+  </div>
+  <div class="color hide" style="background: rgb(117,117,117);">
+    <div class="hex">
+      <input value maxlength="7">
+    </div>
+  </div>
+  <div class="color hide" style="background: rgb(161,161,161);">
+    <div class="hex">
+      <input value maxlength="7">
+    </div>
+  </div>
+  <div class="color hide" style="background: rgb(165,165,165);">
+    <div class="hex">
+      <input value maxlength="7">
+    </div>
+  </div>
       </div>
     </section>
     <section class="sl n2">
@@ -240,7 +316,7 @@
 <script>
     (function() {
         "use strict"
-        var URL, LIM, init, setS, anim, setP, _timer, _width, $u, $c, $m, $down, $up, $cnt, $obj, $sl, $title, _height, _url, _user, _page;
+        var URL, LIM, init, setS, anim, setP, downColors, _timer, _width, $color, $u, $c, $m, $down, $up, $cnt, $obj, $sl, $title, _height, _url, _user, _page;
         URL = "http://www.sum-mary.com/"
         LIM = 0;
         //_url = window.location.pathname;
@@ -258,6 +334,12 @@
         $obj = $('.obj');
         $sl = $('.cnt .sl');
         $title = $('.title');
+        $color = $('.color');
+        downColors = function(){
+          setTimeout(function(){
+            $color.removeClass("hide");
+          }, 200);
+        }
         setP = function(n) {
             if (n < 1) {
                 $up.addClass("non");
@@ -273,7 +355,7 @@
             $sl.hide();
             $title.fadeIn();
             if (_page === 0) {
-                $title.text("あなたの色を選ぶ");
+                $title.text("MY COLOR");
             } else if (_page === 1) {
                 $title.text("Simple Paper - メイキング");
             }
@@ -288,6 +370,7 @@
             $c.text(_user);
             setS();
             setP(_page);
+            downColors();
         };
         init();
         $m.click(function() {

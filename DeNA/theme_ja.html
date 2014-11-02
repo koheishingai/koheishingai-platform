@@ -5,22 +5,19 @@
         cursor: default;
     }
     .rm {
-        height: 155px;
-        /* Fix Me */
-        
-        height: 108px;
+        /* height: 155px;
+        height: 108px; */
     }
-    .cnt3 {
+    .box_ {
         width: 100%;
         height: 100%;
-        padding: 20px 80px;
         overflow: hidden;
     }
-    .cnt3 iframe {
+    .box_ iframe {
         width: 100%;
         height: 100%;
     }
-    .cnt {
+    .content_ {
         width: 100%;
         padding: 20px;
         overflow: hidden;
@@ -30,7 +27,7 @@
         margin: 0;
     }
     .article h2 {
-        color: #ADADAD;
+        color: #A5A5A5;
         font-size: 23px;
         font-weight: 300;
         line-height: 40px;
@@ -181,11 +178,21 @@
         background: #fff;
         box-shadow: none;
     }
-    .cnt .sl {
+    .article .wrap {
+        height: 100%;
+        width: 100%;
+        transition: padding .3s ease-in-out;
+        -webkit-font-smoothing: antialiased;
+        margin: 0;
+        overflow: hidden;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0, );
+    }
+    .content_ .section_ {
         width: 100%;
         height: 100%;
     }
-    .cnt h1 {
+    .content_ h1 {
         color: #858585;
         text-align: center;
         position: absolute;
@@ -214,124 +221,179 @@
     .menu_c.twitter .b {
         color: #009EDA;
     }
+    .color {
+        cursor: default;
+        height: 100%;
+        width: 20%;
+        float: left;
+        position: relative;
+        overflow: hidden;
+    }
+    .color.hide {
+        height: 0%;
+    }
+    .color:nth-child(1) {
+        transition: background .1s ease-in-out, height .8s ease-in-out;
+    }
+    .color:nth-child(2) {
+        transition: background .1s ease-in-out, height .8s ease-in-out .1s;
+    }
+    .color:nth-child(3) {
+        transition: background .1s ease-in-out, height .8s ease-in-out .2s;
+    }
+    .color:nth-child(4) {
+        transition: background .1s ease-in-out, height .8s ease-in-out .3s;
+    }
+    .color:nth-child(5) {
+        transition: background .1s ease-in-out, height .8s ease-in-out .4s;
+    }
+    .color .hex {
+        position: absolute;
+        bottom: 21px;
+        text-align: center;
+        width: 100%;
+        opacity: 1;
+        transition: opacity .3 ease-in-out;
+    }
+    .color .hex input {
+        font-size: 33px;
+        width: 170px;
+    }
+    .color input {
+        color: inherit;
+        font: inherit;
+        margin: 0;
+        line-height: normal;
+        background: none;
+        border: none;
+        opacity: 0.2;
+        padding: 3px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: all .2 ease-in-out;
+        cursor: pointer;
+        outline: none;
+    }
 </style>
-<h2 class="title">最もシンプルなWebプラットフォーム</h2>
-<div class="cnt">
-    <section class="sl n1">
-        <div class="cnt3" style="display:none;">
-            <iframe width="560" height="315" src="//www.youtube.com/embed/5s9Ygdni-Os" frameborder="0" allowfullscreen=""></iframe>
+<h2 class="title_">MY- color -CODE</h2>
+<div class="content_">
+    <section class="section_ no1">
+        <div class="box_">
+            <div class="color hide" style="background: rgb(255,255,255);">
+                <div class="hex">
+                    <input value maxlength="7">
+                </div>
+            </div>
+            <div class="color hide" style="background: rgb(238,238,238);">
+                <div class="hex">
+                    <input value maxlength="7">
+                </div>
+            </div>
+            <div class="color hide" style="background: rgb(117,117,117);">
+                <div class="hex">
+                    <input value maxlength="7">
+                </div>
+            </div>
+            <div class="color hide" style="background: rgb(161,161,161);">
+                <div class="hex">
+                    <input value maxlength="7">
+                </div>
+            </div>
+            <div class="color hide" style="background: rgb(165,165,165);">
+                <div class="hex">
+                    <input value maxlength="7">
+                </div>
+            </div>
         </div>
-    </section>
-    <section class="sl n2">
-        <a target="_blank" href="http://home.koheishingai.com">
-            <div class="menu_c home" data="">
-                <p class="text">Home</p>
-                <p class="b">ホームページ</p>
-            </div>
-        </a>
-        <a target="_blank">
-            <div class="menu_c twitter" data="">
-                <p class="text">Twitter</p>
-                <p class="b">ツイッター</p>
-            </div>
-        </a>
     </section>
 </div>
 <script>
-    (function() {
-        "use strict"
-        var URL, LIM, init, setS, anim, setP, _timer, _width, $u, $c, $m, $down, $up, $cnt, $obj, $sl, $title, _height, _url, _user, _page;
-        URL = "http://www.sum-mary.com/"
-        LIM = 1;
-        //_url = window.location.pathname;
-        _url = "Summary";
-        _user = localStorage.getItem("user");
-        _width = $(".article").width();
-        _height = $(".article").height();
-        _page = 0;
-        $u = $('.article .u');
-        $c = $('.article .c');
-        $m = $('.article .m');
-        $up = $('.rm .i .u');
-        $down = $('.rm .i .d');
-        $cnt = $('.article .cnt');
-        $obj = $('.obj');
-        $sl = $('.cnt .sl');
-        $title = $('.title');
-        setP = function(n) {
-            if (n < 1) {
-                $up.addClass("non");
-                $down.removeClass("non");
-                _page = 0;
-            } else if (n === LIM) {
-                $up.removeClass("non");
-                $down.addClass("non");
-                _page = LIM;
-            }
-            $title.hide();
-            var i = _page + 1;
-            $sl.hide();
-            $title.fadeIn();
-            if (_page === 0) {
-                $title.text("最もシンプルなWebプラットフォーム");
-            } else if (_page === 1) {
-                $title.text("企画者 - Kohei Shingai");
-            }
-            $('.cnt .n' + i).fadeIn(function() {});
-        };
-        setS = function() {
-            var h = _height - 85;
-            $cnt.height(h);
-        };
-        init = function() {
-            $u.text(URL + _url);
-            $c.text(_user);
-            setS();
-            setP(_page);
-        };
-        init();
-        $m.click(function() {
-            var cnt = 0;
-            $obj.removeClass("no");
-            //$right.addClass("s1");
-            anim = setInterval(function() {
-                if (cnt === 0) {
-                    //$right.addClass("s2");
-                } else if (cnt === 1) {
-                    //$right.addClass("s3");
-                } else if (cnt === 2) {
-                    $right.addClass("s4");
-                } else if (cnt === 3) {
+this.theme = this.theme || {};
+(function(theme) {
+  "use strict"
+  var window = this;
+  theme.$up = $('.rm .i .u');
+  theme.$down = $('.rm .i .d');
+  theme.$title = $('.title_');
+  theme.$section = $('.content_ .section_');
+  theme.$color = $('.color');
+  theme.$article = $('.article');
+  theme.$content = $('.article .content_');
+  theme.$window = $(window);
+  theme.height = theme.$article.height();
+  theme.page = 0;
+  theme.limit = 1;
+  theme.caption = ["MY- color -CODE"];
 
-                } else if (cnt === 4) {
-                    $obj.addClass("no");
-                    //$right.removeClass("s1").removeClass("s2").removeClass("s3").removeClass("s4");
-                    clearInterval(anim);
-                }
-                cnt++;
-            }, 600);
-        });
-        $(window).resize(function() {
-            if (_timer !== false) {
-                clearTimeout(_timer)
-            }
-            _timer = setTimeout(function() {
-                _width = $(".article").width();
-                _height = $(".article").height();
-                setS();
-            }, 100)
-        });
-        $up.click(function() {
-            var n = _page - 1;
-            if (n > -1) {
-                setP(n);
-            }
-        });
-        $down.click(function() {
-            var n = _page + 1;
-            if (n < LIM + 1) {
-                setP(n);
-            }
-        });
-    })();
+  theme.downColors = function() {
+    setTimeout(function() {
+      theme.$color.removeClass("hide");
+    }, 200);
+  }
+
+  theme.setSectionSize = function() {
+    theme.$content.height(theme.height - 85);
+  };
+
+  theme.setPages = function(p) {
+    var sp = {};
+
+    sp.init = function() {
+      if (p < 1) {
+        theme.$up.addClass("non");
+        theme.$down.removeClass("non");
+        theme.page = 0;
+      } else if (p === theme.limit) {
+        theme.$up.removeClass("non");
+        theme.$down.addClass("non");
+        theme.page = theme.limit;
+      }
+    }
+
+    sp.page = theme.page + 1;
+
+    sp.init();
+    theme.$title.hide();
+    theme.$section.hide();
+    theme.$title.fadeIn().text(theme.caption[theme.page]);
+    $('.content_ .no' + sp.page).fadeIn();
+  };
+
+  theme.init = function() {
+    theme.setSectionSize();
+    theme.setPages(theme.page);
+    theme.downColors();
+  };
+
+  theme.init();
+
+  theme.$window.resize(function() {
+    if (theme.timer !== false) {
+      clearTimeout(theme.timer)
+    }
+    theme.timer = setTimeout(function() {
+      theme.width = theme.$article.width();
+      theme.height = theme.$article.height();
+      theme.setSectionSize();
+    }, 100);
+  });
+
+  theme.$up.click(function() {
+    var uc = {};
+    uc.page = theme.page - 1;
+    if (uc.page > -1) {
+      theme.setPages(uc.page);
+    }
+  });
+
+  theme.$down.click(function() {
+    var dc = {};
+    dc.page = theme.page + 1;
+    if (dc.page < theme.limit + 1) {
+      theme.setPages(dc.page);
+    }
+  });
+
+}(this.theme));
+// Kohei Shingai.
 </script>

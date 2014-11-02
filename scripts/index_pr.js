@@ -4,7 +4,7 @@ Requires: jquery
 */
 (function() {
     "use strict";
-    var DOWNC, _theme, _title, _hs, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, $ph, $phi, $ops, $phone, $on, $off, $head, $sidemenu_a, $foot_load, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC, changeL, generateID, hashA, getLang, setTitle, setT, getTime;
+    var DOWNC, _home, _host, _theme, _title, _hs, _data, _text, _width_c, _width, _height, _device, _browser, _url, _timer, _timer_l, _cnt_l, $close, $notify, $body, $logo, $card, $loading, $title, $title_l, $title_a, $search_w, $search_b, $side_nav, $main_c, $menu_c, $content, $sidemenu, $rightmenu, $frame, $_c, $_cc, $sm, $sma, $in, $ph, $phi, $ops, $phone, $on, $off, $head, $sidemenu_a, $foot_load, $loading_h1, $fl_div, init, logoPos, upAd, nLoad, iLoad, alertS, closeMenu, openMenu, notify, upCard, setCard, addHash, changeC, changeL, generateID, hashA, getLang, setTitle, setT, getTime;
     var socket_r = io.connect(":8080");
     var socket_w = io.connect(":8081");
     var socket_b = io.connect(":8082");
@@ -16,15 +16,18 @@ Requires: jquery
     _browser = localStorage.getItem("browser");
     _theme = localStorage.getItem("themes");
     _url = window.location.pathname;
+    _host = window.location.host;
     _text = "";
     _data = "";
     _hs = "";
     _title = "";
+    _home = false; // [FixMe]
     $on = $("#switch-on");
     $off = $("#switch-off");
     $logo = $('.logo');
     $card = $('.card');
     $loading = $('.loading');
+    $loading_h1 = $('.loading h1');
     $title = $('title');
     $title_l = $('.title_l');
     $title_a = $('.logo a');
@@ -52,6 +55,7 @@ Requires: jquery
     $head = $('head');
     $phone = $(".header[data='phone']");
     $foot_load = $('.foot-load');
+    $fl_div = $('.foot-load section div');
     getTime = function(){
       var t = new Date();
       var h = t.getHours();
@@ -176,9 +180,17 @@ Requires: jquery
     nLoad = function(title_l){
       if(_cnt_l === 0){
         setTitle();
-        $title.text(_title);
-        $title_a.text(_title);
-        $title_l.text(_title).removeClass("step4").addClass("step1");
+        // ----[FixMe] >>
+        if(_home === true){
+          $title.text("Kohei Shingai");
+          $title_a.text("Kohei Shingai");
+          $title_l.text("Kohei Shingai").removeClass("step4").addClass("step1");          
+        }else{
+          $title.text(_title);
+          $title_a.text(_title);
+          $title_l.text(_title).removeClass("step4").addClass("step1");        
+        }
+        // << ----[FixMe]
         $foot_load.addClass("on");
         setTimeout(function(){$foot_load.hide().removeClass("on")}, 280);
         setTimeout(function(){$foot_load.show()},560);
@@ -204,41 +216,68 @@ Requires: jquery
         setTimeout(function(){$foot_load.hide().removeClass("on")}, 280);
         setTimeout(function(){$foot_load.show()},560);
         if(_url !== "/"){
-          $loading.fadeOut(function(){
-            clearInterval(_timer_l);
-            logoPos(_width, _height);
-            upAd();
+          // ----[FixMe] >>
+          if(_home === true){
+            window.location.href = "http://www.koheishingai.com/home";
+          }else{
+            $loading.fadeOut(function(){
+              clearInterval(_timer_l);
+              logoPos(_width, _height);
+              if(_hs === ""){
+                upAd();
+              }
           });
+          }
+          // << ----[FixMe]          
         }else{
-          $loading.fadeOut(function(){
-            clearInterval(_timer_l);
-            logoPos(_width, _height);
-            upAd();
-          });
+          // ----[FixMe] >>
+          if(_home === true){
+            window.location.href = "http://www.koheishingai.com/home";
+          }else{
+            $loading.fadeOut(function(){
+              clearInterval(_timer_l);
+              logoPos(_width, _height);
+              if(_hs === ""){
+                upAd();
+              }
+            });
+          }
+          // << ----[FixMe]
         }
       }
     };
     iLoad = function(title_l){
       if(_cnt_l === 0){
-        //$title.text('Summary');
-        $title_a.text('Kami');
-        $title_l.html('Kami');
+        setTitle();
+        // ----[FixMe] >>
+        if(_home === true){
+          $title.text("Kohei Shingai");
+          $title_a.text("Kohei Shingai");
+          $title_l.html("Kohei Shingai");
+        }else{
+          
+          $title.text(_title);
+          $title_a.text(_title);
+          $title_l.html(_title);
+        }
+        // << ----[FixMe]
       }else if(_cnt_l === 1){
                
       }else if(_cnt_l === 2){
         
       }else if(_cnt_l === 3){
-        
-        if(_url !== "/"){
-          _cnt_l = -1;
+        // ----[FixMe] >>
+        if(_home === true){
+          window.location.href = "http://www.koheishingai.com/home";
         }else{
           logoPos(_width, _height);
           $loading.fadeOut(function(){
             clearInterval(_timer_l);
             upAd();
-            alertS();
+            // alertS(); - [Omit]
           });
         }
+        // << ----[FixMe]
       }
     };
     init = function(){
@@ -253,12 +292,22 @@ Requires: jquery
         if(_device !== "iphone"){
           nLoad(title_l);
         }else{
-          iLoad(title_l+"<div>Now Loading</div>");
+          iLoad(title_l);
         }
         _cnt_l++;
       }, 730);
     };
-    init();
+    // ----[FixMe] >>
+    if(_host !== "home.koheishingai.com"){
+      init();
+    }else{
+      $loading.css("background","rgb(255, 204, 0)");
+      $loading_h1.css("color","#fff");
+      $fl_div.css("background","#fff");
+      _home = true;
+      init();
+    }
+    // << ----[FixMe]
     $(window).resize(function() {
         var width = window.innerWidth;
         var height = window.innerHeight;

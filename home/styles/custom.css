@@ -146,29 +146,30 @@ body {
   text-decolation: none;
 }
 
+
 #logo h1 {
-  top: 0;
-  left: 60px;
-  width: 264px;
-  height: 72px;
-  margin: 0 auto;
-  padding: 0;
-  background: rgba(255,255,255,1);
-  background-image: none;
-  color: #DBDBDB;
-  overflow: hidden;
-  font-family: 'Titillium Web',sans-serif;
-  font-size: 26px;
-  text-align: right;
-  float: left;
-  position: absolute;
-  -moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
-  cursor: pointer;
-  -o-transition: left .3s ease-out;
-  -moz-transition: left .3s ease-out;
-  -webkit-transition: left .3s ease-out;
-  transition: left .3s ease-out;
-  line-height: 72px;
+top: 0;
+left: 60px;
+width: 267px;
+height: 72px;
+margin: 0 auto;
+padding: 0;
+background: rgba(255,255,255,1);
+background-image: none;
+color: #DBDBDB;
+overflow: hidden;
+font-family: 'Titillium Web',sans-serif;
+font-size: 26px;
+text-align: right;
+float: left;
+position: absolute;
+-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+cursor: pointer;
+-o-transition: left .3s ease-out;
+-moz-transition: left .3s ease-out;
+-webkit-transition: left .3s ease-out;
+transition: left .3s ease-out;
+line-height: 72px;
 }
 
 #logoul {
